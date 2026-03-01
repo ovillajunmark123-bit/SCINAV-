@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Reviewer - SciNav</title>
+  <title>Reviewer & Contest Preparation - SciNav</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -15,22 +15,97 @@
     <a href="interactive.html">Interactive</a>
   </nav>
 
-  <h2>Reviewer & Contest Preparation</h2>
-  <p>Prepare for exams and contests with these reviewer banks:</p>
-  <ul>
-    <li><strong>Biology:</strong> Cell structure, genetics, ecosystems</li>
-    <li><strong>Chemistry:</strong> Atomic theory, reactions, solutions</li>
-    <li><strong>Physics:</strong> Laws of motion, energy, waves</li>
-  </ul>
+  <header class="hero">
+    <h1>Reviewer & Contest Preparation</h1>
+    <p>Prepare for exams and contests with subject-specific notes and quizzes.</p>
+  </header>
 
-  <h3>Quick Quiz</h3>
-  <p>Test your knowledge:</p>
-  <div id="quiz">
-    <p>Q1: What is the powerhouse of the cell?</p>
-    <button onclick="checkAnswer('Mitochondria')">Mitochondria</button>
-    <button onclick="checkAnswer('Nucleus')">Nucleus</button>
-    <button onclick="checkAnswer('Ribosome')">Ribosome</button>
-  </div>
-  <p id="result"></p>
+  <!-- Biology Section -->
+  <section class="review-section">
+    <h2>Biology Reviewer</h2>
+    <p>Biology is the study of life and living organisms, from molecules to ecosystems.</p>
+    <ul>
+      <li>Cell Biology: Prokaryotic & eukaryotic cells, organelles.</li>
+      <li>Genetics: DNA, RNA, protein synthesis, biotechnology.</li>
+      <li>Metabolism & Energy: ATP, respiration, photosynthesis.</li>
+      <li>Ecology: Biodiversity, conservation, ecosystems.</li>
+      <li>Evolution: Natural selection, adaptation, speciation.</li>
+    </ul>
+
+    <div class="quiz">
+      <h3>Biology Quiz</h3>
+      <p>Q1: What organelle performs photosynthesis?</p>
+      <button onclick="checkAnswer('Chloroplast','bio')">Chloroplast</button>
+      <button onclick="checkAnswer('Mitochondria','bio')">Mitochondria</button>
+      <p id="bio-result"></p>
+    </div>
+  </section>
+
+  <!-- Chemistry Section -->
+  <section class="review-section">
+    <h2>Chemistry Reviewer</h2>
+    <p>Chemistry is the study of matter, its properties, and the changes it undergoes.</p>
+    <ul>
+      <li>Atomic Theory: Structure of atoms, isotopes.</li>
+      <li>Chemical Bonding: Ionic, covalent, metallic bonds.</li>
+      <li>Stoichiometry: Balancing equations, mole concept.</li>
+      <li>Thermochemistry: Energy changes, calorimetry.</li>
+      <li>Organic Chemistry: Hydrocarbons, polymers.</li>
+    </ul>
+
+    <div class="quiz">
+      <h3>Chemistry Quiz</h3>
+      <p>Q1: What is the pH of a neutral solution?</p>
+      <button onclick="checkAnswer('7','chem')">7</button>
+      <button onclick="checkAnswer('0','chem')">0</button>
+      <p id="chem-result"></p>
+    </div>
+  </section>
+
+  <!-- Physics Section -->
+  <section class="review-section">
+    <h2>Physics Reviewer</h2>
+    <p>Physics is the study of matter, energy, and the fundamental laws of nature.</p>
+    <ul>
+      <li>Mechanics: Motion, forces, Newton’s laws.</li>
+      <li>Waves & Sound: Oscillations, acoustics.</li>
+      <li>Electricity & Magnetism: Circuits, electromagnetism.</li>
+      <li>Thermodynamics: Heat, entropy, energy transfer.</li>
+      <li>Modern Physics: Quantum mechanics, relativity.</li>
+    </ul>
+
+    <div class="quiz">
+      <h3>Physics Quiz</h3>
+      <p>Q1: Which law states that for every action there is an equal and opposite reaction?</p>
+      <button onclick="checkAnswer('Newton’s Third Law','phys')">Newton’s Third Law</button>
+      <button onclick="checkAnswer('Law of Conservation of Energy','phys')">Conservation of Energy</button>
+      <p id="phys-result"></p>
+    </div>
+  </section>
+
+  <!-- Earth Science Section -->
+  <section class="review-section">
+    <h2>Earth Science Reviewer</h2>
+    <p>Earth Science studies Earth’s structure, processes, and systems.</p>
+    <ul>
+      <li>Geology: Rocks, minerals, plate tectonics.</li>
+      <li>Meteorology: Weather, climate change.</li>
+      <li>Oceanography: Currents, marine ecosystems.</li>
+      <li>Astronomy: Earth’s place in the universe.</li>
+      <li>Environmental Science: Sustainability, resources.</li>
+    </ul>
+
+    <div class="quiz">
+      <h3>Earth Science Quiz</h3>
+      <p>Q1: What is the main cause of earthquakes?</p>
+      <button onclick="checkAnswer('Plate Tectonics','earth')">Plate Tectonics</button>
+      <button onclick="checkAnswer('Volcanic Ash','earth')">Volcanic Ash</button>
+      <p id="earth-result"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 SciNav | Reviewer & Contest Prep</p>
+  </footer>
 </body>
-</html>
+      </html>
