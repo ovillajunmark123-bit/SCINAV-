@@ -6,6 +6,7 @@ body {
   padding: 0;
 }
 
+/* Navigation Bar */
 nav {
   background: #004d7a;
   padding: 10px;
@@ -19,35 +20,197 @@ nav a {
   font-weight: bold;
 }
 
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Hero Section */
 .hero {
   background: linear-gradient(to right, #004d7a, #008793, #00bf72);
   color: white;
-  padding: 100px 20px;
+  padding: 50px 20px;
   text-align: center;
 }
 
-.btn {
-  background: #ffcc00;
-  padding: 10px 20px;
-  text-decoration: none;
-  color: black;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
+/* Topic Cards (Navigation Hub) */
 .topics {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
+  margin: 30px;
 }
 
 .card {
-  background: #e0f7fa;
-  margin: 10px;
+  background: #ffffff;
+  margin: 15px;
   padding: 20px;
-  border-radius: 8px;
-  width: 200px;
-  text-align: center;
-  font-weight: bold;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  width: 250px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.card h2 {
+  color: #004d7a;
+}
+
+.card ul {
+  list-style-type: square;
+  padding-left: 20px;
+}
+
+/* Reviewer Sections */
+.review-section {
+  background: #ffffff;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 12px;
+  width: 80%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.review-section h2 {
+  color: #004d7a;
+}
+
+.quiz {
+  background: #f0f8ff;
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 8px;
+}
+
+.quiz button {
+  background: #008793;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quiz button:hover {
+  background: #00bf72;
+}
+
+/* Case Studies */
+.search-bar {
+  text-align: center;
+  margin: 20px;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 10px;
+  border: 2px solid #004d7a;
+  border-radius: 8px;
+  font-size: 16px; /* FIXED: added missing value */
+}
+
+.case-studies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.case-study {
+  background: #ffffff;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.case-study:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.case-study h3 {
+  color: #008793;
+}
+
+.case-study a {
+  color: #004d7a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.case-study a:hover {
+  text-decoration: underline;
+}
+
+/* Experiments */
+.experiment-category {
+  margin: 30px auto;
+  width: 90%;
+}
+
+.experiment-category h2 {
+  color: #004d7a;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.experiment-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.experiment {
+  background: #ffffff;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 12px;
+  width: 280px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.experiment:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.experiment h3 {
+  color: #008793;
+}
+
+.experiment p {
+  font-size: 14px;
+  color: #555;
+}
+
+.experiment button {
+  background: #00bf72;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.experiment button:hover {
+  background: #004d7a;
+}
+
+/* Footer */
+footer {
+  background: #004d7a;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  }
