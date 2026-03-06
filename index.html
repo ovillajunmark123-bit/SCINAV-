@@ -9,14 +9,28 @@
 
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f0f8ff;
-      color: #333;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f, #a1c4fd, #c2e9fb);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Navigation Bar */
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     nav {
       background: linear-gradient(90deg, #004080, #0080ff);
       padding: 12px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
     }
     nav ul {
       list-style: none;
@@ -27,37 +41,40 @@
       color: white;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1em;
+      transition: 0.3s;
     }
+    nav ul li a:hover { color: #ffcc00; }
 
-    /* Hero Section */
     .hero {
-      background: url('https://upload.wikimedia.org/wikipedia/commons/9/9e/Science_symbols.png') no-repeat center center/cover;
-      height: 100vh;
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       position: relative;
       overflow: hidden;
+      padding-top: 60px; /* offset for fixed nav */
     }
-    .hero .overlay {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 10px;
-      color: #fff;
+
+    .overlay {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 12px;
       max-width: 90%;
-      z-index: 2;
+      animation: fadeIn 2s ease;
     }
-    .hero h1 {
-      font-size: 2.5em;
+
+    .overlay h1 {
+      font-size: 2.8em;
       margin-bottom: 10px;
       color: #00ffcc;
     }
-    .hero p {
+
+    .overlay p {
       font-size: 1.2em;
       margin-bottom: 20px;
     }
+
     .btn {
       display: inline-block;
       padding: 12px 25px;
@@ -70,11 +87,11 @@
     }
     .btn:hover { background: #ff3300; }
 
-    Icons */
+    /* Floating science icons */
     .icon {
       position: absolute;
       font-size: 2em;
-      animation: float 12s linear infinite;
+      animation: float 15s linear infinite;
       opacity: 0.8;
     }
     .icon:nth-child(1) { left: 10%; animation-delay: 0s; }
@@ -89,21 +106,16 @@
       100% { top: -10%; transform: rotate(360deg); }
     }
 
-    /* Footer */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     footer {
-      background: #004080;
-      color: white;
+      background: rgba(0,0,0,0.6);
       text-align: center;
       padding: 15px;
       font-size: 0.9em;
-    }
-
-    /* Responsive tweaks */
-    @media (max-width: 600px) {
-      .hero h1 { font-size: 2em; }
-      .hero p { font-size: 1em; }
-      nav ul { flex-direction: column; }
-      nav ul li { margin: 5px 0; }
     }
   </style>
 </head>
@@ -112,19 +124,19 @@
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="navigation.html">Navigation Hub</a></li>
+      <li><a href="search.html">Knowledge Search</a></li>
       <li><a href="reviewer.html">Reviewer</a></li>
       <li><a href="case-studies.html">Case Studies</a></li>
-      <li><a href="interactive.html">Interactive</a></li>
+      <li><a href="interactive.html">Experiments</a></li>
     </ul>
   </nav>
 
   <!-- Hero Section -->
-  <header class="hero">
+  <section class="hero">
     <div class="overlay">
-      <h1>SciNav 🔬</h1>
+      <h1>SciNav 🧪</h1>
       <p>Explore, Review, and Connect Science to Real Life</p>
-      <a href="navigation.html" class="btn">Start Exploring</a>
+      <a href="search.html" class="btn">Start Exploring</a>
     </div>
 
     <!-- Animated Science Icons -->
@@ -132,12 +144,12 @@
     <div class="icon">🧬</div>
     <div class="icon">🔬</div>
     <div class="icon">⚗️</div>
-    <div class="icon">🧪</div>
-  </header>
+    <div class="icon">🛰️</div>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2026 SciNav | Built for Science Majors</p>
+    © 2026 SciNav | Built for Science Majors
   </footer>
 </body>
-  </html>
+                         </html>
