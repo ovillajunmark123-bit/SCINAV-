@@ -2,118 +2,195 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Interactive Experiments - SciNav</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciNav | Interactive Experiments</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    nav {
+      background: rgba(0,0,0,0.6);
+      padding: 12px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #004080;
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .experiment {
+      background: rgba(255,255,255,0.9);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+      text-align: center;
+    }
+    .experiment:hover { transform: scale(1.05); }
+
+    .experiment h3 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    .experiment button {
+      padding: 8px 15px;
+      background: #004080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .experiment button:hover { background: #0080ff; }
+
+    #videoPlayer {
+      margin-top: 30px;
+      text-align: center;
+    }
+    iframe {
+      width: 90%;
+      max-width: 600px;
+      height: 350px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      background: rgba(0,0,0,0.6);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="navigation.html">Navigation Hub</a>
-    <a href="reviewer.html">Reviewer</a>
-    <a href="case-studies.html">Case Studies</a>
-    <a href="interactive.html">Interactive</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html">Knowledge Search</a></li>
+      <li><a href="reviewer.html">Reviewer</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="interactive.html">Experiments</a></li>
+    </ul>
   </nav>
 
-  <header class="hero">
-    <h1>Interactive Experiments</h1>
-    <p>Explore 55+ experiments across Biology, Chemistry, Physics, and Earth Science.</p>
-  </header>
+  <!-- Main Content -->
+  <main>
+    <h2>Interactive Experiments 🎥</h2>
+    <div class="grid" id="experimentGrid"></div>
+    <div id="videoPlayer"></div>
+  </main>
 
-  <!-- Biology Experiments -->
-  <section class="experiment-category">
-    <h2>🔬 Biology Experiments</h2>
-    <div class="experiment-list">
-      <div class="experiment">
-        <h3>Microscope Observation of Onion Cells</h3>
-        <p>Study cell walls and nuclei.</p>
-        <button onclick="startExperiment('Onion Cells')">Start</button>
-      </div>
-      <div class="experiment">
-        <h3>DNA Extraction from Strawberries</h3>
-        <p>Simple method using soap and alcohol.</p>
-        <button onclick="startExperiment('DNA Extraction')">Start</button>
-      </div>
-      <div class="experiment">
-        <h3>Photosynthesis Rate in Aquatic Plants</h3>
-        <p>Measure oxygen bubbles from Elodea.</p>
-        <button onclick="startExperiment('Photosynthesis')">Start</button>
-      </div>
-      <!-- Continue adding until 13 biology experiments -->
-    </div>
-  </section>
-
-  <!-- Chemistry Experiments -->
-  <section class="experiment-category">
-    <h2>⚗️ Chemistry Experiments</h2>
-    <div class="experiment-list">
-      <div class="experiment">
-        <h3>Acid-Base Titration</h3>
-        <p>Neutralize acid with base using indicators.</p>
-        <button onclick="startExperiment('Titration')">Start</button>
-      </div>
-      <div class="experiment">
-        <h3>Electrolysis of Water</h3>
-        <p>Split water into hydrogen and oxygen.</p>
-        <button onclick="startExperiment('Electrolysis')">Start</button>
-      </div>
-      <div class="experiment">
-        <h3>Chromatography of Ink</h3>
-        <p>Separate pigments on filter paper.</p>
-        <button onclick="startExperiment('Chromatography')">Start</button>
-      </div>
-      <!-- Continue adding until 26 chemistry experiments -->
-    </div>
-  </section>
-
-  <!-- Physics Experiments -->
-  <section class="experiment-category">
-    <h2>⚡ Physics Experiments</h2>
-    <div class="experiment-list">
-      <div class="experiment">
-        <h3>Pendulum Motion</h3>
-        <p>Measure period with different lengths.</p>
-        <button onclick="startExperiment('Pendulum Motion')">Start</button>
-      </div>
-      <div class="experiment">
-        <h3>Projectile Motion with a Ball</h3>
-        <p>Track trajectory.</p>
-        <button onclick="startExperiment('Projectile Motion')">Start</button>
-      </div>
-      <div class="experiment">
-        <h3>Newton’s Third Law with Balloons</h3>
-        <p>Balloon rocket experiment.</p>
-        <button onclick="startExperiment('Balloon Rocket')">Start</button>
-      </div>
-      <!-- Continue adding until 39 physics experiments -->
-    </div>
-  </section>
-
-  <!-- Earth Science Experiments -->
-  <section class="experiment-category">
-    <h2>🌍 Earth Science Experiments</h2>
-    <div class="experiment-list">
-      <div class="experiment">
-        <h3>Volcano Model</h3>
-        <p>Simulate eruption with baking soda and vinegar.</p>
-        <button onclick="startExperiment('Volcano Model')">Start</button>
-      </div>
-      <div class="experiment">
-        <h3>Earthquake Simulation</h3>
-        <p>Observe shaking effects with sand and blocks.</p>
-        <button onclick="startExperiment('Earthquake Simulation')">Start</button>
-      </div>
-      <div class="experiment">
-        <h3>Water Filtration Model</h3>
-        <p>Sand, gravel, charcoal layers.</p>
-        <button onclick="startExperiment('Water Filtration')">Start</button>
-      </div>
-      <!-- Continue adding until 55 earth science experiments -->
-    </div>
-  </section>
-
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 SciNav | Interactive Experiments</p>
+    © 2026 SciNav | Interactive Experiments Page
   </footer>
+
+  <script>
+    const experiments = [
+      {title:"Microscope Observation of Onion Cells", video:"https://www.youtube.com/embed/0fKBhvDjuy0"},
+      {title:"DNA Extraction from Strawberries", video:"https://www.youtube.com/embed/5MQdXjM7zeY"},
+      {title:"Photosynthesis Rate in Aquatic Plants", video:"https://www.youtube.com/embed/eo5XndJaz-Y"},
+      {
+
+  <!-- Main Content -->
+  <main>
+    <h2>Interactive Experiments 🎥</h2>
+    <div class="grid" id="experimentGrid"></div>
+    <div id="videoPlayer"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 SciNav | Interactive Experiments Page
+  </footer>
+
+  <script>
+    const experiments = [
+      {title:"Microscope Observation of Onion Cells", video:"https://www.youtube.com/embed/0fKBhvDjuy0"},
+      {title:"DNA Extraction from Strawberries", video:"https://www.youtube.com/embed/5MQdXjM7zeY"},
+      {title:"Photosynthesis Rate in Aquatic Plants", video:"https://www.youtube.com/embed/eo5XndJaz-Y"},
+      {title:"Acid-Base Titration", video:"https://www.youtube.com/embed/3kK7tZzQ0Zk"},
+      {title:"Electrolysis of Water", video:"https://www.youtube.com/embed/4z9I6Zme7yQ"},
+      {title:"Chromatography of Ink", video:"https://www.youtube.com/embed/2VZ6l0wYfZk"},
+      {title:"Pendulum Motion", video:"https://www.youtube.com/embed/7OVzlxJ7nXU"},
+      {title:"Projectile Motion with a Ball", video:"https://www.youtube.com/embed/2zKqzQ0Zk"},
+      {title:"Newton’s Third Law with Balloons", video:"https://www.youtube.com/embed/3kK7tZzQ0Zk"},
+      {title:"Volcano Model", video:"https://www.youtube.com/embed/4z9I6Zme7yQ"},
+      {title:"Earthquake Simulation", video:"https://www.youtube.com/embed/5MQdXjM7zeY"},
+      {title:"Magnetism with Iron Filings", video:"https://www.youtube.com/embed/eo5XndJaz-Y"},
+      {title:"Simple Circuit with Bulb", video:"https://www.youtube.com/embed/0fKBhvDjuy0"},
+      {title:"Water Filtration Experiment", video:"https://www.youtube.com/embed/2VZ6l0wYfZk"},
+      {title:"Density Tower", video:"https://www.youtube.com/embed/7OVzlxJ7nXU"},
+      {title:"Solar Energy with Panels", video:"https://www.youtube.com/embed/3kK7tZzQ0Zk"},
+      {title:"Wind Energy Turbine Model", video:"https://www.youtube.com/embed/4z9I6Zme7yQ"},
+      {title:"Greenhouse Effect Simulation", video:"https://www.youtube.com/embed/5MQdXjM7zeY"},
+      {title:"Fossil Formation Model", video:"https://www.youtube.com/embed/eo5XndJaz-Y"},
+      {title:"Rocket Launch with Baking Soda", video:"https://www.youtube.com/embed/0fKBhvDjuy0"}
+    ];
+
+    function renderExperiments() {
+      const grid = document.getElementById("experimentGrid");
+      experiments.forEach((exp, index) => {
+        const div = document.createElement("div");
+        div.className = "experiment";
+        div.innerHTML = `
+          <h3>${index+1}. ${exp.title}</h3>
+          <button onclick="showVideo('${exp.video}')">Watch Experiment</button>
+        `;
+        grid.appendChild(div);
+      });
+    }
+
+    function showVideo(link) {
+      const player = document.getElementById("videoPlayer");
+      player.innerHTML = `<iframe src="${link}" allowfullscreen></iframe>`;
+    }
+
+    // Initial render
+    renderExperiments();
+  </script>
 </body>
-        </html>
+  </html>
