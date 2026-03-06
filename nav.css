@@ -1,0 +1,41 @@
+.hero {
+  background: linear-gradient(to right, #004d7a, #008793, #00bf72);
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+#searchBox {
+  margin-top: 20px;
+  padding: 10px;
+  width: 60%;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+}
+
+.results {
+  margin: 30px auto;
+  width: 80%;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.category-card {
+  background: #ffffff;
+  margin: 15px;
+  padding: 20px;
+  border-radius: 12px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
