@@ -2,10 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Navigation Hub - SciNav</title>
+  <title>SciNav Navigation Hub</title>
   <link rel="stylesheet" href="style.css">
+  <script src="nav.js" defer></script>
 </head>
 <body>
+  <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
     <a href="navigation.html">Navigation Hub</a>
@@ -14,63 +16,52 @@
     <a href="interactive.html">Interactive</a>
   </nav>
 
+  <!-- Hero -->
   <header class="hero">
-    <h1>🔬 SciNav Navigation Hub</h1>
-    <p>Explore the core branches of science with summaries and key areas.</p>
+    <h1>Navigation Hub</h1>
+    <p>Explore all subjects in SciNav. Use the search box to find experiments, topics, and explanations.</p>
+    <input type="text" id="searchBox" placeholder="Search experiments or topics...">
   </header>
 
-  <section class="topics">
-    <div class="card">
-      <h2>Biology</h2>
-      <p>The study of life and living organisms, from molecules to ecosystems.</p>
-      <ul>
-        <li>Cell Biology</li>
-        <li>Genetics</li>
-        <li>Ecology</li>
-        <li>Evolution</li>
-        <li>Human Biology</li>
-      </ul>
-    </div>
+  <!-- Results -->
+  <section id="results" class="results">
+    <h2>Search Results</h2>
+    <div id="searchOutput"></div>
+  </section>
 
-    <div class="card">
-      <h2>Chemistry</h2>
-      <p>The study of matter, its properties, and the changes it undergoes.</p>
-      <ul>
-        <li>Atomic Theory</li>
-        <li>Chemical Bonding</li>
-        <li>Stoichiometry</li>
-        <li>Organic Chemistry</li>
-        <li>Analytical Chemistry</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Physics</h2>
-      <p>The study of matter, energy, and the fundamental laws of nature.</p>
-      <ul>
-        <li>Mechanics</li>
-        <li>Waves & Sound</li>
-        <li>Electricity & Magnetism</li>
-        <li>Thermodynamics</li>
-        <li>Modern Physics</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Earth Science</h2>
-      <p>The study of Earth’s structure, processes, and systems.</p>
-      <ul>
-        <li>Geology</li>
-        <li>Meteorology</li>
-        <li>Oceanography</li>
-        <li>Environmental Science</li>
-        <li>Paleontology</li>
-      </ul>
+  <!-- Categories -->
+  <section class="categories">
+    <h2>Subjects</h2>
+    <div class="category-list">
+      <div class="category-card">
+        <h3>Biology</h3>
+        <p>Cells, DNA, plants, enzymes, human biology, ecology, biotechnology.</p>
+      </div>
+      <div class="category-card">
+        <h3>Chemistry</h3>
+        <p>Reactions, acids & bases, bonding, everyday chemistry, environmental chemistry.</p>
+      </div>
+      <div class="category-card">
+        <h3>Physics</h3>
+        <p>Motion, forces, energy, waves, electricity, renewable energy.</p>
+      </div>
+      <div class="category-card">
+        <h3>Earth Science</h3>
+        <p>Volcanoes, earthquakes, water cycle, climate, fossils, human impact.</p>
+      </div>
+      <div class="category-card">
+        <h3>Case Studies</h3>
+        <p>Real-world applications: climate change, biodiversity, pollution, sustainability.</p>
+      </div>
+      <div class="category-card">
+        <h3>Reviewer & Quiz</h3>
+        <p>Flashcards, quizzes, practice exams, progress tracking, study tips.</p>
+      </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2026 SciNav | Science Navigation Hub</p>
+    <p>&copy; 2026 SciNav | Navigation Hub</p>
   </footer>
 </body>
-        </html>
+      </html>
