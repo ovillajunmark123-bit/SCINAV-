@@ -2,160 +2,173 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Case Studies - SciNav</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciNav | Case Studies</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f, #a1c4fd, #c2e9fb);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    nav {
+      background: rgba(0,0,0,0.6);
+      padding: 12px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #004080;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: none;
+      margin: 0 auto 20px auto;
+      display: block;
+      font-size: 1em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .study {
+      background: rgba(255,255,255,0.9);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+    .study:hover { transform: scale(1.05); }
+
+    .study h3 {
+      color: #ff6600;
+      margin-bottom: 10px;
+    }
+
+    .study p {
+      font-size: 0.95em;
+      margin-bottom: 10px;
+    }
+
+    .study a {
+      color: #004080;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.6);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="navigation.html">Navigation Hub</a>
-    <a href="reviewer.html">Reviewer</a>
-    <a href="case-studies.html">Case Studies</a>
-    <a href="interactive.html">Interactive</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html">Knowledge Search</a></li>
+      <li><a href="reviewer.html">Reviewer</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+    </ul>
   </nav>
 
-  <header class="hero">
-    <h1>Science Case Studies</h1>
-    <p>Explore real-world applications of Biology, Chemistry, Physics, and Earth Science.</p>
-  </header>
+  <!-- Main Content -->
+  <main>
+    <h2>Science Case Studies 🔎</h2>
+    <input type="text" id="searchBox" placeholder="Search case studies...">
+    <div class="grid" id="studiesGrid"></div>
+  </main>
 
-  <!-- Search Bar -->
-  <div class="search-bar">
-    <input type="text" id="search" placeholder="Search case studies..." onkeyup="searchCaseStudies()">
-  </div>
-
-  <!-- Case Study Cards -->
-  <section class="case-studies">
-
-    <!-- Biology -->
-    <div class="case-study">
-      <h3>CRISPR Gene Editing in Human Cells</h3>
-      <p><strong>Abstract:</strong> Explores CRISPR-Cas9 technology as a tool for modifying DNA sequences, with potential applications in treating genetic disorders.</p>
-      <a href="https://www.nature.com/articles/d41586-020-02448-5" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>COVID-19 Vaccine Development</h3>
-      <p><strong>Abstract:</strong> Examines the rapid development of mRNA vaccines and their effectiveness in preventing viral infections.</p>
-      <a href="https://www.cdc.gov/coronavirus/2019-ncov/vaccines/index.html" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Stem Cell Therapy for Regeneration</h3>
-      <p><strong>Abstract:</strong> Investigates how stem cells regenerate damaged tissues, with applications in spinal cord injuries.</p>
-      <a href="https://stemcells.nih.gov/info/basics" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Human Microbiome and Health</h3>
-      <p><strong>Abstract:</strong> Studies the role of gut bacteria in digestion, immunity, and disease prevention.</p>
-      <a href="https://hsph.harvard.edu/nutritionsource/microbiome/" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Biodiversity Loss in Rainforests</h3>
-      <p><strong>Abstract:</strong> Analyzes species decline due to deforestation and climate change.</p>
-      <a href="https://www.worldwildlife.org/topics/biodiversity" target="_blank">Read More</a>
-    </div>
-
-    <!-- Chemistry -->
-    <div class="case-study">
-      <h3>Plastic Pollution and Biodegradable Alternatives</h3>
-      <p><strong>Abstract:</strong> Evaluates chemical processes behind biodegradable plastics and their environmental impact.</p>
-      <a href="https://www.unep.org/interactives/beat-plastic-pollution/" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Green Chemistry in Industry</h3>
-      <p><strong>Abstract:</strong> Focuses on sustainable chemical reactions that reduce waste and energy consumption.</p>
-      <a href="https://www.epa.gov/greenchemistry" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Nanoparticles in Drug Delivery</h3>
-      <p><strong>Abstract:</strong> Explores how engineered nanoparticles improve targeted drug delivery in cancer treatment.</p>
-      <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6466506/" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Water Purification Using Activated Carbon</h3>
-      <p><strong>Abstract:</strong> Investigates adsorption techniques for removing contaminants from drinking water.</p>
-      <a href="https://www.sciencedirect.com/topics/earth-and-planetary-sciences/activated-carbon" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Battery Chemistry in Renewable Energy</h3>
-      <p><strong>Abstract:</strong> Examines lithium-ion and solid-state batteries for energy storage in solar and wind systems.</p>
-      <a href="https://www.energy.gov/eere/energy-storage" target="_blank">Read More</a>
-    </div>
-
-    <!-- Physics -->
-    <div class="case-study">
-      <h3>Gravitational Waves Detection</h3>
-      <p><strong>Abstract:</strong> Discusses how LIGO detected ripples in spacetime, confirming Einstein’s predictions.</p>
-      <a href="https://www.ligo.caltech.edu/page/what-are-gw" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Quantum Computing Applications</h3>
-      <p><strong>Abstract:</strong> Explores quantum mechanics principles applied to computing for faster problem-solving.</p>
-      <a href="https://www.ibm.com/quantum" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Solar Energy Conversion Efficiency</h3>
-      <p><strong>Abstract:</strong> Studies photovoltaic cell improvements to maximize solar energy capture.</p>
-      <a href="https://www.nrel.gov/solar/" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Projectile Motion in Sports</h3>
-      <p><strong>Abstract:</strong> Analyzes physics of ball trajectories in basketball and soccer.</p>
-      <a href="https://www.physicsclassroom.com/class/vectors/Lesson-2/What-is-a-Projectile" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Nuclear Fusion as Clean Energy</h3>
-      <p><strong>Abstract:</strong> Investigates experimental fusion reactors as a sustainable energy source.</p>
-      <a href="https://www.iter.org/" target="_blank">Read More</a>
-    </div>
-
-    <!-- Earth Science -->
-    <div class="case-study">
-      <h3>Climate Change Impact on Typhoons in the Philippines</h3>
-      <p><strong>Abstract:</strong> Examines how rising sea temperatures intensify typhoon frequency and strength.</p>
-      <a href="https://www.climate.gov/news-features/understanding-climate/climate-change-and-hurricanes" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Volcanic Activity in Mt. Mayon</h3>
-      <p><strong>Abstract:</strong> Studies eruption patterns and their effects on local communities.</p>
-      <a href="https://www.phivolcs.dost.gov.ph/" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Mangrove Restoration in Coastal Areas</h3>
-      <p><strong>Abstract:</strong> Highlights ecological benefits of mangrove reforestation for flood protection.</p>
-      <a href="https://www.fao.org/forestry/mangroves/en/" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Coral Bleaching in the Great Barrier Reef</h3>
-      <p><strong>Abstract:</strong> Investigates causes of coral bleaching due to rising ocean temperatures.</p>
-      <a href="https://www.gbrmpa.gov.au/" target="_blank">Read More</a>
-    </div>
-
-    <div class="case-study">
-      <h3>Deforestation in Amazon Rainforest</h3>
-      <p><strong>Abstract:</strong> Analyzes environmental consequences of large-scale logging and agriculture.</p>
-      <a href="https://www.worldwildlife.org/places/amazon" target="_blank">Read More</a>
-    </div>
-
-  </section>
-
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 SciNav | Case Studies</p>
+    © 2026 SciNav | Case Studies Page
   </footer>
+
+  <script>
+    const studies = [
+      {title:"CRISPR Gene Editing", abstract:"Explores CRISPR-Cas9 technology for modifying DNA sequences.", link:"#"},
+      {title:"COVID-19 Vaccine Development", abstract:"Examines rapid development of mRNA vaccines.", link:"#"},
+      {title:"Stem Cell Therapy", abstract:"Investigates how stem cells regenerate damaged tissues.", link:"#"},
+      {title:"Human Microbiome", abstract:"Studies the role of gut bacteria in health.", link:"#"},
+      {title:"Biodiversity Loss", abstract:"Analyzes species decline due to deforestation.", link:"#"},
+      {title:"Plastic Pollution", abstract:"Evaluates biodegradable plastics and their impact.", link:"#"},
+      {title:"Green Chemistry", abstract:"Focuses on sustainable chemical reactions.", link:"#"},
+      {title:"Nanoparticles in Drug Delivery", abstract:"Explores targeted drug delivery using nanoparticles.", link:"#"},
+      {title:"Water Purification", abstract:"Investigates activated carbon for clean water.", link:"#"},
+      {title:"Battery Chemistry", abstract:"Examines lithium-ion and solid-state batteries.", link:"#"},
+      {title:"Gravitational Waves", abstract:"Discusses LIGO’s detection of spacetime ripples.", link:"#"},
+      {title:"Quantum Computing", abstract:"Explores quantum mechanics applied to computing.", link:"#"},
+      {title:"Solar Energy Efficiency", abstract:"Studies improvements in photovoltaic cells.", link:"#"},
+      {title:"Projectile Motion in Sports", abstract:"Analyzes ball trajectories in basketball and soccer.", link:"#"}
+    ];
+
+    function renderStudies(list) {
+      const grid = document.getElementById("studiesGrid");
+      grid.innerHTML = "";
+      list.forEach(study => {
+        const div = document.createElement("div");
+        div.className = "study";
+        div.innerHTML = `
+          <h3>${study.title}</h3>
+          <p>${study.abstract}</p>
+          <a href="${study.link}">Read More</a>
+        `;
+        grid.appendChild(div);
+      });
+    }
+
+    function searchStudies() {
+      const query = document.getElementById("searchBox").value.toLowerCase();
+      const filtered = studies.filter(s => 
+        s.title.toLowerCase().includes(query) || s.abstract.toLowerCase().includes(query)
+      );
+      renderStudies(filtered);
+    }
+
+    document.getElementById("searchBox").addEventListener("input", searchStudies);
+
+    // Initial render
+    renderStudies(studies);
+  </script>
 </body>
-  </html>
+</html>
