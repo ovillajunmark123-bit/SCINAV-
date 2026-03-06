@@ -2,66 +2,203 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SciNav Navigation Hub</title>
-  <link rel="stylesheet" href="style.css">
-  <script src="nav.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciNav | Knowledge Search</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #ffcc70, #ff8177, #40e0d0, #30cfd0);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    nav {
+      background: rgba(0,0,0,0.6);
+      padding: 12px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #fff;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 1em;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #004080;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover { background: #0080ff; }
+
+    #result {
+      margin-top: 20px;
+      background: rgba(255,255,255,0.9);
+      padding: 15px;
+      border-radius: 10px;
+      max-width: 500px;
+      font-size: 1.1em;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.6);
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
+  <!-- Navigation Bar -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="navigation.html">Navigation Hub</a>
-    <a href="reviewer.html">Reviewer</a>
-    <a href="case-studies.html">Case Studies</a>
-    <a href="interactive.html">Interactive</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="navigation.html">Navigation Hub</a></li>
+      <li><a href="reviewer.html">Reviewer</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="interactive.html">Interactive</a></li>
+    </ul>
   </nav>
 
-  <!-- Hero -->
-  <header class="hero">
-    <h1>Navigation Hub</h1>
-    <p>Explore all subjects in SciNav. Use the search box to find experiments, topics, and explanations.</p>
-    <input type="text" id="searchBox" placeholder="Search experiments or topics...">
-  </header>
+  <!-- Main Content -->
+  <main>
+    <h2>Science Knowledge Search 🔎</h2>
+    <input type="text" id="searchBox" placeholder="Type a keyword (DNA, Atom, Volcano)...">
+    <button onclick="searchInfo()">Search</button>
+    <div id="result"></div>
+  </main>
 
-  <!-- Results -->
-  <section id="results" class="results">
-    <h2>Search Results</h2>
-    <div id="searchOutput"></div>
-  </section>
-
-  <!-- Categories -->
-  <section class="categories">
-    <h2>Subjects</h2>
-    <div class="category-list">
-      <div class="category-card">
-        <h3>Biology</h3>
-        <p>Cells, DNA, plants, enzymes, human biology, ecology, biotechnology.</p>
-      </div>
-      <div class="category-card">
-        <h3>Chemistry</h3>
-        <p>Reactions, acids & bases, bonding, everyday chemistry, environmental chemistry.</p>
-      </div>
-      <div class="category-card">
-        <h3>Physics</h3>
-        <p>Motion, forces, energy, waves, electricity, renewable energy.</p>
-      </div>
-      <div class="category-card">
-        <h3>Earth Science</h3>
-        <p>Volcanoes, earthquakes, water cycle, climate, fossils, human impact.</p>
-      </div>
-      <div class="category-card">
-        <h3>Case Studies</h3>
-        <p>Real-world applications: climate change, biodiversity, pollution, sustainability.</p>
-      </div>
-      <div class="category-card">
-        <h3>Reviewer & Quiz</h3>
-        <p>Flashcards, quizzes, practice exams, progress tracking, study tips.</p>
-      </div>
-    </div>
-  </section>
-
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 SciNav | Navigation Hub</p>
+    <p>© 2026 SciNav | Knowledge Search Page</p>
   </footer>
+
+  <script>
+    const explanations = {
+      "DNA": "DNA (Deoxyribonucleic Acid) carries genetic instructions for life.",
+      "RNA": "RNA helps translate DNA into proteins.",
+      "Atom": "Smallest unit of matter, made of protons, neutrons, electrons.",
+      "Molecule": "Two or more atoms bonded together.",
+      "Cell": "Basic unit of life.",
+      "Mitochondria": "Organelle that produces energy (ATP).",
+      "Chloroplast": "Organelle in plants that performs photosynthesis.",
+      "Photosynthesis": "Process where plants convert sunlight into energy.",
+      "Respiration": "Cells break down glucose to release energy.",
+      "Protein": "Large molecules made of amino acids, essential for life.",
+      "Enzyme": "Protein that speeds up chemical reactions.",
+      "Gene": "Segment of DNA coding for a trait.",
+      "Chromosome": "Structure of DNA and proteins carrying genes.",
+      "Evolution": "Process of change in species over time.",
+      "Natural Selection": "Mechanism where traits that aid survival spread.",
+      "Ecology": "Study of organisms and their environment.",
+      "Biodiversity": "Variety of life in an ecosystem.",
+      "Gravity": "Force attracting objects toward each other.",
+      "Force": "Push or pull acting on an object.",
+      "Energy": "Capacity to do work.",
+      "Kinetic Energy": "Energy of motion.",
+      "Potential Energy": "Stored energy due to position.",
+      "Newton’s First Law": "Objects stay at rest or motion unless acted upon.",
+      "Newton’s Second Law": "Force equals mass times acceleration (F=ma).",
+      "Newton’s Third Law": "Every action has an equal and opposite reaction.",
+      "Velocity": "Speed with direction.",
+      "Acceleration": "Rate of change of velocity.",
+      "Wave": "Disturbance transferring energy.",
+      "Sound": "Vibrations traveling through a medium.",
+      "Light": "Electromagnetic radiation visible to humans.",
+      "Electricity": "Flow of electric charge.",
+      "Magnetism": "Force from moving charges or magnetic materials.",
+      "Circuit": "Path for electric current.",
+      "Voltage": "Potential difference driving current.",
+      "Current": "Flow of electric charge.",
+      "Resistance": "Opposition to current flow.",
+      "Thermodynamics": "Study of heat and energy transfer.",
+      "Entropy": "Measure of disorder in a system.",
+      "Chemical Bond": "Attraction holding atoms together.",
+      "Ionic Bond": "Bond formed by transfer of electrons.",
+      "Covalent Bond": "Bond formed by sharing electrons.",
+      "Acid": "Substance that donates protons (H+).",
+      "Base": "Substance that accepts protons.",
+      "pH": "Measure of acidity or alkalinity.",
+      "Reaction": "Process where substances change into new ones.",
+      "Oxidation": "Loss of electrons in a reaction.",
+      of electrons in a reaction.",
+      "Volcano": "Opening in Earth’s crust releasing lava and gases.",
+      "aking of Earth due to tectonic movement.",
+      "Plate Tectonics": "Theory of Earth’s lithospheric plates moving.",
+      "Rock": "Solid material forming Earth’s crust.",
+      "Mineral": "Naturally occurring inorganic substance.",
+      "Water Cycle": "Movement of water through evaporation, condensation, precipitation.",
+      "Climate": "Long-term weather patterns.",
+      "Fossil": "Preserved remains of ancient organisms.",
+      "Astronomy": "Study of celestial objects and space.",
+      "Galaxy": "System of stars, gas, dust bound by gravity.",
+      "Star": "Mass of gas producing light via fusion.",
+      "Planet": "Celestial body orbiting a star.",
+      "Moon": "Natural satellite orbiting a planet.",
+      "Universe": "All space, time, matter, and energy."
+    };
+
+    function searchInfo() {
+      const query = document.getElementById("searchBox").value.trim();
+      const resultDiv = document.getElementById("result");
+      if (!query) {
+        resultDiv.innerHTML = "Please type a keyword.";
+        return;
+      }
+      const key = Object.keys(explanations).find(k => k.toLowerCase() === query.toLowerCase());
+      if (key) {
+        resultDiv.innerHTML = `<strong>${key}:</strong> ${explanations[key]}`;
+      } else {
+        resultDiv.innerHTML = "No explanation found. Try keywords like DNA, Atom, Volcano, Photosynthesis, Gravity.";
+      }
+    }
+  </script>
 </body>
-      </html>
+  </html>
