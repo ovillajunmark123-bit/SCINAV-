@@ -2,26 +2,142 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SciNav - Science Navigator</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciNav | Home</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f8ff;
+      color: #333;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background: linear-gradient(90deg, #004080, #0080ff);
+      padding: 12px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/9/9e/Science_symbols.png') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero .overlay {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      border-radius: 10px;
+      color: #fff;
+      max-width: 90%;
+      z-index: 2;
+    }
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #00ffcc;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #ff6600;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #ff3300; }
+
+    Icons */
+    .icon {
+      position: absolute;
+      font-size: 2em;
+      animation: float 12s linear infinite;
+      opacity: 0.8;
+    }
+    .icon:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .icon:nth-child(2) { left: 30%; animation-delay: 3s; }
+    .icon:nth-child(3) { left: 50%; animation-delay: 6s; }
+    .icon:nth-child(4) { left: 70%; animation-delay: 9s; }
+    .icon:nth-child(5) { left: 85%; animation-delay: 12s; }
+
+    @keyframes float {
+      0% { top: 100%; transform: rotate(0deg); }
+      50% { transform: rotate(180deg); }
+      100% { top: -10%; transform: rotate(360deg); }
+    }
+
+    /* Footer */
+    footer {
+      background: #004080;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2em; }
+      .hero p { font-size: 1em; }
+      nav ul { flex-direction: column; }
+      nav ul li { margin: 5px 0; }
+    }
+  </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
   <nav>
-    <a href="index.html">Home</a>
-    <a href="navigation.html">Navigation Hub</a>
-    <a href="reviewer.html">Reviewer</a>
-    <a href="case-studies.html">Case Studies</a>
-    <a href="interactive.html">Interactive</a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="navigation.html">Navigation Hub</a></li>
+      <li><a href="reviewer.html">Reviewer</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="interactive.html">Interactive</a></li>
+    </ul>
   </nav>
 
+  <!-- Hero Section -->
   <header class="hero">
-    <h1>🔬 SciNav</h1>
-    <p>Explore, Review, and Connect Science to Real Life</p>
-    <a href="navigation.html" class="btn">Start Exploring</a>
+    <div class="overlay">
+      <h1>SciNav 🔬</h1>
+      <p>Explore, Review, and Connect Science to Real Life</p>
+      <a href="navigation.html" class="btn">Start Exploring</a>
+    </div>
+
+    <!-- Animated Science Icons -->
+    <div class="icon">⚛️</div>
+    <div class="icon">🧬</div>
+    <div class="icon">🔬</div>
+    <div class="icon">⚗️</div>
+    <div class="icon">🧪</div>
   </header>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; 2026 SciNav | Built for Science Majors</p>
+    <p>© 2026 SciNav | Built for Science Majors</p>
   </footer>
 </body>
   </html>
