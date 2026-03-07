@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SciNav | Knowledge Search</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    main {
+      flex: 1;
+      padding: 100px 20px 40px; /* offset for fixed nav */
+    }
+    h2 {
+      text-align: center;
+      color: #00ffcc;
+      margin-bottom: 20px;
+      font-size: 2.2em;
+      animation: fadeIn 2s ease;
+    }
+    .search-box {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    input[type="text"] {
+      padding: 12px;
+      width: 70%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1em;
+    }
+    #result {
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+      color: #fff;
+    }
+    .section {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 800px;
+      animation: fadeIn 2s ease;
+    }
+    .section h3 {
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+    .section ul {
+      text-align: left;
+      line-height: 1.6;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html">Knowledge Search</a></li>
+      <li><a href="reviewer.html">Reviewer</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="interactive.html">Experiments</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Science Knowledge Search 🔎</h2>
+    <div class="search-box">
+      <input type="text" id="searchBox" placeholder="Search topics (Biology, Physics, Chemistry, Earth)...">
+    </div>
+    <div id="result"></div>
+
+    <!-- Biology -->
+    <div class="section" data-topic="biology">
+      <h3>Biology 🧬</h3>
+      <ul>
+        <li>Cell Theory – All living things are made of cells.</li>
+        <li>DNA – Genetic instructions for life.</li>
+        <li>Mitosis – Cell division for growth.</li>
+        <li>Meiosis – Produces gametes.</li>
+        <li>Photosynthesis – Plants convert sunlight.</li>
+        <li>Respiration – Energy release from glucose.</li>
+        <li>Genetics – Study of heredity.</li>
+        <li>Evolution – Natural selection.</li>
+        <li>Ecology – Organism interactions.</li>
+        <li>Human Systems – Circulatory, respiratory, nervous.</li>
+      </ul>
+    </div>
+
+    <!-- Physics -->
+    <div class="section" data-topic="physics">
+      <h3>Physics ⚛️</h3>
+      <ul>
+        <li>Newton’s Laws – Motion rules.</li>
+        <li>Force – Push or pull.</li>
+        <li>Energy – Kinetic & potential.</li>
+        <li>Waves – Sound & light.</li>
+        <li>Electricity – Flow of charge.</li>
+        <li>Magnetism – Magnetic fields.</li>
+        <li>Thermodynamics – Heat transfer.</li>
+        <li>Gravity – Attraction between masses.</li>
+        <li>Relativity – Einstein’s theory.</li>
+        <li>Quantum Mechanics – Atomic physics.</li>
+      </ul>
+    </div>
+
+    <!-- Chemistry -->
+    <div class="section" data-topic="chemistry">
+      <h3>Chemistry ⚗️</h3>
+      <ul>
+        <li>Atom – Smallest unit of matter.</li>
+        <li>Periodic Table – Elements chart.</li>
+        <li>Chemical Bonds – Ionic, covalent.</li>
+        <li>Acids & Bases – pH scale.</li>
+        <li>Reactions – Transformation of substances.</li>
+        <li>Stoichiometry – Reaction calculations.</li>
+        <li>Organic Chemistry – Carbon compounds.</li>
+        <li>Inorganic Chemistry – Non‑carbon compounds.</li>
+        <li>Solutions – Solute + solvent.</li>
+        <li>Polymers – Plastics & biomolecules.</li>
+      </ul>
+    </div>
+
+    <!-- Earth Science -->
+    <div class="section" data-topic="earth science">
+      <h3>Earth Science 🌍</h3>
+      <ul>
+        <li>Geology – Rocks & Earth’s structure.</li>
+        <li>Plate Tectonics – Earth’s plates movement.</li>
+        <li>Volcanoes – Magma eruptions.</li>
+        <li>Earthquakes – Tectonic shaking.</li>
+        <li>Weather – Short‑term conditions.</li>
+        <li>Climate – Long‑term patterns.</li>
+        <li>Oceanography – Oceans & currents.</li>
+        <li>Astronomy – Celestial bodies.</li>
+        <li>Environmental Science – Human impacts.</li>
+        <li>Natural Resources – Water, minerals, fuels.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>© 2026 SciNav | Knowledge Search Page</footer>
+
+  <script>
+    const searchBox = document.getElementById("searchBox");
+    const sections = document.querySelectorAll(".section");
+    const resultDiv = document.getElementById("result");
+
+    searchBox.addEventListener("input", function() {
+      const query = searchBox.value.toLowerCase();
+      let found = false;
+      sections.forEach(section => {
+        const topic = section.getAttribute("data-topic");
+        const text = section.innerText.toLowerCase();
+        if ((topic.includes(query) || text.includes(query)) && query !== "") {
+          section.style.display = "block";
+          resultDiv.innerHTML = `<strong>Found:</strong> ${section.querySelector("h3").innerText}`;
+          found = true;
+        } else if (query === "") {
+          section.style.display = "block";
+          resultDiv.innerHTML = "";
+        } else {
+          section.style.display = "none";
+        }
+      });
+      if (!found && query !== "") {
+        resultDiv.innerHTML = "No matching topic found.";
+      }
+    });
+  </script>
+</body>
+          </html>
