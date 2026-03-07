@@ -3,271 +3,271 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SciNav | Reviewer</title>
+  <title>SciNav | Reviewer Test</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
-      background-size: 400% 400%;
-      animation: gradientBG 20s ease infinite;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    nav {
-      background: rgba(0,0,0,0.6);
-      padding: 12px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: space-around;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    main {
-      flex: 1;
-      padding: 20px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #004080;
-      margin-bottom: 20px;
-    }
-
-    .topic {
-      background: rgba(255,255,255,0.9);
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 12px;
-      max-width: 800px;
-    }
-
-    .topic h3 {
-      color: #ff6600;
-      margin-bottom: 15px;
-    }
-
-    .question {
-      margin: 10px 0;
-    }
-
-    button {
-      margin-top: 5px;
-      padding: 6px 12px;
-      background: #004080;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover { background: #0080ff; }
-
-    .feedback {
-      margin-top: 5px;
-      font-weight: bold;
-    }
-
-    .correct {
-      color: green;
-      animation: pop 0.6s ease;
-    }
-    .wrong {
-      color: red;
-    }
-
-    @keyframes pop {
-      0% { transform: scale(0.5); opacity: 0; }
-      50% { transform: scale(1.2); opacity: 1; }
-      100% { transform: scale(1); }
-    }
+    main { flex: 1; padding: 100px 20px 40px; }
+    h2 { text-align: center; color: #00ffcc; margin-bottom: 20px; font-size: 2.2em; animation: fadeIn 2s ease; }
+    .quiz-section { background: rgba(0,0,0,0.6); padding: 20px; border-radius: 12px; margin: 20px auto; max-width: 800px; animation: fadeIn 2s ease; }
+    .quiz-section h3 { color: #ffcc00; margin-bottom: 10px; }
+    .quiz-section p { font-weight: bold; }
+    .quiz-section label { display: block; margin: 6px 0; }
+    button { margin-top: 15px; padding: 10px 20px; border: none; border-radius: 8px; background: #ff6600; color: white; cursor: pointer; transition: 0.3s; }
+    button:hover { background: #ff3300; }
+    #score { text-align: center; font-size: 1.5em; margin-top: 20px; color: #fff; }
+    #reward { display: none; text-align: center; font-size: 2em; font-weight: bold; margin-top: 20px; animation: flash 1s infinite alternate; }
+    @keyframes flash { from { color: #00ffcc; } to { color: #ffcc00; } }
+    nav { background: linear-gradient(90deg, #004080, #0080ff); padding: 12px; position: fixed; width: 100%; top: 0; z-index: 10; }
+    nav ul { list-style: none; display: flex; justify-content: space-around; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 6px; }
+    nav ul li a:hover { color: #ffcc00; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
   <!-- Navigation Bar -->
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="search.html">Knowledge Search</a></li>
-      <li><a href="reviewer.html">Reviewer</a></li>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="search.html">🔎 Knowledge Search</a></li>
+      <li><a href="reviewer.html">📘 Reviewer</a></li>
+      <li><a href="case-studies.html">📑 Case Studies</a></li>
+      <li><a href="interactive.html">🧪 Experiments</a></li>
     </ul>
   </nav>
 
   <!-- Main Content -->
   <main>
-    <h2>Reviewer & Quiz Practice</h2>
+    <h2>Reviewer Test 🎯</h2>
+    <p style="text-align:center;">Answer the questions based on the information from the Knowledge Search page.</p>
 
-    <!-- Biology Topic -->
-    <div class="topic">
-      <h3>Biology Quiz</h3>
-      <div id="bioQuiz"></div>
-    </div>
+    <form id="quizForm">
+      <!-- Biology -->
+      <div class="quiz-section">
+        <h3>Biology 🧬</h3>
+        <p>Q1: What molecule carries genetic instructions?</p>
+        <label><input type="radio" name="bio1" value="DNA"> DNA</label>
+        <label><input type="radio" name="bio1" value="RNA"> RNA</label>
 
-    <!-- Physics Topic -->
-    <div class="topic">
-      <h3>Physics Quiz</h3>
-      <div id="phyQuiz"></div>
-    </div>
+        <p>Q2: What process produces gametes?</p>
+        <label><input type="radio" name="bio2" value="Meiosis"> Meiosis</label>
+        <label><input type="radio" name="bio2" value="Mitosis"> Mitosis</label>
 
-    <!-- Chemistry Topic -->
-    <div class="topic">
-      <h3>Chemistry Quiz</h3>
-      <div id="chemQuiz"></div>
-    </div>
+        <p>Q3: Which organelle performs photosynthesis?</p>
+        <label><input type="radio" name="bio3" value="Chloroplast"> Chloroplast</label>
+        <label><input type="radio" name="bio3" value="Mitochondria"> Mitochondria</label>
 
-    <!-- Earth Science Topic -->
-    <div class="topic">
-      <h3>Earth Science Quiz</h3>
-      <div id="earthQuiz"></div>
-    </div>
+        <p>Q4: What is the basic unit of life?</p>
+        <label><input type="radio" name="bio4" value="Cell"> Cell</label>
+        <label><input type="radio" name="bio4" value="Atom"> Atom</label>
+
+        <p>Q5: Who is the father of genetics?</p>
+        <label><input type="radio" name="bio5" value="Mendel"> Gregor Mendel</label>
+        <label><input type="radio" name="bio5" value="Darwin"> Charles Darwin</label>
+
+        <p>Q6: What process releases energy from glucose?</p>
+        <label><input type="radio" name="bio6" value="Respiration"> Respiration</label>
+        <label><input type="radio" name="bio6" value="Photosynthesis"> Photosynthesis</label>
+
+        <p>Q7: What theory explains species adaptation?</p>
+        <label><input type="radio" name="bio7" value="Evolution"> Evolution</label>
+        <label><input type="radio" name="bio7" value="Cell Theory"> Cell Theory</label>
+
+        <p>Q8: What is biodiversity?</p>
+        <label><input type="radio" name="bio8" value="Variety"> Variety of life forms</label>
+        <label><input type="radio" name="bio8" value="Energy"> Energy in ecosystems</label>
+
+        <p>Q9: Which system circulates blood?</p>
+        <label><input type="radio" name="bio9" value="Circulatory"> Circulatory System</label>
+        <label><input type="radio" name="bio9" value="Respiratory"> Respiratory System</label>
+
+        <p>Q10: What carries traits from parents to offspring?</p>
+        <label><input type="radio" name="bio10" value="Genes"> Genes</label>
+        <label><input type="radio" name="bio10" value="Proteins"> Proteins</label>
+      </div>
+
+      <!-- Physics -->
+      <div class="quiz-section">
+        <h3>Physics ⚛️</h3>
+        <p>Q1: Which law explains motion and forces?</p>
+        <label><input type="radio" name="phy1" value="Newton"> Newton’s Laws</label>
+        <label><input type="radio" name="phy1" value="Relativity"> Relativity</label>
+
+        <p>Q2: What is the unit of force?</p>
+        <label><input type="radio" name="phy2" value="Newton"> Newton</label>
+        <label><input type="radio" name="phy2" value="Joule"> Joule</label>
+
+        <p>Q3: What type of energy is stored due to position?</p>
+        <label><input type="radio" name="phy3" value="Potential"> Potential Energy</label>
+        <label><input type="radio" name="phy3" value="Kinetic"> Kinetic Energy</label>
+
+        <p>Q4: What type of wave is sound?</p>
+        <label><input type="radio" name="phy4" value="Longitudinal"> Longitudinal</label>
+        <label><input type="radio" name="phy4" value="Transverse"> Transverse</label>
+
+        <p>Q5: What flows in an electric circuit?</p>
+        <label><input type="radio" name="phy5" value="Current"> Electric Current</label>
+        <label><input type="radio" name="phy5" value="Heat"> Heat</label>
+
+        <p>Q6: What produces a magnetic field?</p>
+        <label><input type="radio" name="phy6" value="Moving Charges"> Moving Charges</label>
+        <label><input type="radio" name="phy6" value="Light"> Light</label>
+
+        <p>Q7: Which law explains heat transfer?</p>
+        <label><input type="radio" name="phy7" value="Thermodynamics"> Thermodynamics</label>
+        <label><input type="radio" name="phy7" value="Gravity"> Gravity</label>
+
+        <p>Q8: What force attracts objects toward each other?</p>
+        <label><input type="radio" name="phy8" value="Gravity"> Gravity</label>
+        <label><input type="radio" name="phy8" value="Magnetism"> Magnetism</label>
+
+        <p>Q9: Which theory explains space and time?</p>
+        <label><input type="radio" name="phy9" value="Relativity"> Relativity</label>
+        <label><input type="radio" name="phy9" value="Quantum"> Quantum Mechanics</label>
+
+        <p>Q10: Which branch of physics studies atomic particles?</p>
+        <label><input type="radio" name="phy10" value="Quantum"> Quantum Mechanics</label>
+        <label><input type="radio" name="phy10" value="Thermodynamics"> Thermodynamics</label>
+      </div>
+
+      <!-- Chemistry -->
+      <div class="quiz-section">
+        <h3>Chemistry ⚗️</h3>
+        <p>Q1: What is the smallest unit of matter?</p>
+        <label><input type="radio" name="chem1" value="Atom"> Atom</label>
+        <label><input type="radio" name="chem1" value="Molecule"> Molecule</label>
+
+        <p>Q2: What chart organizes all elements?</p>
+        <label><input type="radio" name="chem2" value="Periodic Table"> Periodic Table</label>
+        <label><input type="radio" name="chem2" value="Bond Chart"> Bond Chart</label>
+
+        <p>Q3: What type of bond involves electron sharing?</p>
+        <label><input type="radio" name="chem3" value="Covalent"> Covalent</label>
+        <label><input type="radio" name="chem3" value="Ionic"> Ionic</label>
+
+        <p>Q4: What scale measures acidity and basicity?</p>
+        <label><input type="radio" name="chem4" value="pH"> pH Scale</label>
+        <label><input type="radio" name="chem4" value="Mass"> Mass Scale</label>
+
+        <p>Q5: What term describes a substance transformation?</p>
+        <label><input type="radio" name="chem5" value="Reaction"> Chemical Reaction</label>
+        <label><input type="radio" name="chem5" value="Solution"> Solution</label>
+
+        <p>Q6: What calculation method is used in chemical reactions?</p>
+        <label><input type="radio" name="chem6" value="Stoichiometry"> Stoichiometry</label>
+        <label><input type="radio" name="chem6" value="Thermodynamics"> Thermodynamics</label>
+
+        <p>Q7: What branch studies carbon compounds?</p>
+        <label><input type="radio" name="chem7" value="Organic"> Organic Chemistry</label>
+        <label><input type="radio" name="chem7" value="Inorganic"> Inorganic Chemistry</label>
+
+        <p>Q8: What branch studies non‑carbon compounds?</p>
+        <label><input type="radio" name="chem8" value="Inorganic"> Inorganic Chemistry</label>
+        <label><input type="radio" name="chem8" value="Organic"> Organic Chemistry</label>
+
+        <p>Q9: What is a mixture of solute and solvent called?</p>
+        <label><input type="radio" name="chem9" value="Solution"> Solution</label>
+        <label><input type="radio" name="chem9" value="Polymer"> Polymer</label>
+
+        <p>Q10: What large molecules include plastics?</p>
+        <label><input type="radio" name="chem10" value="Polymers"> Polymers</label>
+        <label><input type="radio" name="chem10" value="Atoms"> Atoms</label>
+      </div>
+
+      <!-- Earth Science -->
+      <div class="quiz-section">
+        <h3>Earth Science 🌍</h3>
+        <p>Q1: What branch studies rocks and Earth’s structure?</p>
+        <label><input type="radio" name="earth1" value="Geology"> Geology</label>
+        <label><input type="radio" name="earth1" value="Meteorology"> Meteorology</label>
+
+        <p>Q2: What theory explains Earth’s plates movement?</p>
+        <label><input type="radio" name="earth2" value="Plate Tectonics"> Plate Tectonics</label>
+        <label><input type="radio" name="earth2" value="Evolution"> Evolution</label>
+
+        <p>Q3: What natural event releases magma?</p>
+        <label><input type="radio" name="earth3" value="Volcano"> Volcano</label>
+        <label><input type="radio" name="earth3" value="Earthquake"> Earthquake</label>
+
+        <p>Q4: What sudden shaking results from tectonic activity?</p>
+        <label><input type="radio" name="earth4" value="Earthquake"> Earthquake</label>
+        <label><input type="radio" name="earth4" value="Weather"> Weather</label>
+
+        <p>Q5: What term describes short‑term atmospheric conditions?</p>
+        <label><input type="radio" name="earth5" value="Weather"> Weather</label>
+        <label><input type="radio" name="earth5" value="Climate"> Climate</label>
+
+        <p>Q6: What term describes long‑term weather patterns?</p>
+        <label><input type="radio" name="earth6" value="Climate"> Climate</label>
+        <label><input type="radio" name="earth6" value="Weather"> Weather</label>
+
+        <p>Q7: What branch studies oceans and currents?</p>
+        <label><input type="radio" name="earth7" value="Oceanography"> Oceanography</label>
+        <label><input type="radio" name="earth7" value="Astronomy"> Astronomy</label>
+
+        <p>Q8: What branch studies celestial bodies?</p>
+        <label><input type="radio" name="earth8" value="Astronomy"> Astronomy</label>
+        <label><input type="radio" name="earth8" value="Geology"> Geology</label>
+
+        <p>Q9: What branch studies human impacts on ecosystems?</p>
+        <label><input type="radio" name="earth9" value="Environmental"> Environmental Science</label>
+        <label><input type="radio" name="earth9" value="Meteorology"> Meteorology</label>
+
+        <p>Q10: What term describes materials like water, minerals, and fuels?</p>
+        <label><input type="radio" name="earth10" value="Resources"> Natural Resources</label>
+        <label><input type="radio" name="earth10" value="Solutions"> Solutions</label>
+      </div>
+
+      <div style="text-align:center;">
+        <button type="button" onclick="calculateScore()">Submit Answers</button>
+      </div>
+    </form>
+
+    <div id="score"></div>
+    <div id="reward"></div>
   </main>
 
   <!-- Footer -->
-  <footer style="background:rgba(0,0,0,0.6);color:white;text-align:center;padding:15px;">
-    © 2026 SciNav | Reviewer Page
+  <footer>
+    © 2026 SciNav | Reviewer & Contest Preparation
   </footer>
 
-<script>
-  const quizzes = {
-    Biology: [
-      {q:"What organelle performs photosynthesis?", options:["Chloroplast","Mitochondria"], answer:"Chloroplast"},
-      {q:"What is the molecule of heredity?", options:["DNA","Protein"], answer:"DNA"},
-      {q:"What is the powerhouse of the cell?", options:["Mitochondria","Nucleus"], answer:"Mitochondria"},
-      {q:"Which organelle contains genetic material?", options:["Nucleus","Ribosome"], answer:"Nucleus"},
-      {q:"What process copies DNA?", options:["Replication","Transcription"], answer:"Replication"},
-      {q:"Which molecule carries amino acids?", options:["tRNA","mRNA"], answer:"tRNA"},
-      {q:"What is the basic unit of heredity?", options:["Gene","Chromosome"], answer:"Gene"},
-      {q:"Which blood cells fight infection?", options:["White blood cells","Red blood cells"], answer:"White blood cells"},
-      {q:"What pigment gives plants green color?", options:["Chlorophyll","Carotene"], answer:"Chlorophyll"},
-      {q:"Which process makes gametes?", options:["Meiosis","Mitosis"], answer:"Meiosis"},
-      {q:"What is the study of ecosystems?", options:["Ecology","Geology"], answer:"Ecology"},
-      {q:"Which scientist proposed natural selection?", options:["Charles Darwin","Gregor Mendel"], answer:"Charles Darwin"},
-      {q:"What is the genetic code for proteins?", options:["mRNA codons","DNA helices"], answer:"mRNA codons"},
-      {q:"Which organ filters blood in humans?", options:["Kidney","Liver"], answer:"Kidney"},
-      {q:"What is biodiversity?", options:["Variety of life","Amount of oxygen"], answer:"Variety of life"},
-      {q:"Which organelle makes proteins?", options:["Ribosome","Golgi apparatus"], answer:"Ribosome"},
-      {q:"What is adaptation?", options:["Trait aiding survival","Random mutation"], answer:"Trait aiding survival"},
-      {q:"Which biomolecule stores energy?", options:["Carbohydrates","Nucleic acids"], answer:"Carbohydrates"},
-      {q:"What is the process of cell division?", options:["Mitosis","Photosynthesis"], answer:"Mitosis"},
-      {q:"Which organ pumps blood?", options:["Heart","Lungs"], answer:"Heart"},
-    ],
-    Physics: [
-      {q:"Which law states F=ma?", options:["Newton’s Second Law","Newton’s Third Law"], answer:"Newton’s Second Law"},
-      {q:"What is the speed of light?", options:["3x10^8 m/s","1x10^6 m/s"], answer:"3x10^8 m/s"},
-      {q:"What is the unit of force?", options:["Newton","Joule"], answer:"Newton"},
-      {q:"Which law explains inertia?", options:["Newton’s First Law","Newton’s Third Law"], answer:"Newton’s First Law"},
-      {q:"What is the unit of energy?", options:["Joule","Watt"], answer:"Joule"},
-      {q:"What is acceleration due to gravity?", options:["9.8 m/s²","5 m/s²"], answer:"9.8 m/s²"},
-      {q:"Which wave needs a medium?", options:["Sound","Light"], answer:"Sound"},
-      {q:"What is the unit of power?", options:["Watt","Volt"], answer:"Watt"},
-      {q:"Which scientist discovered gravity?", options:["Isaac Newton","Albert Einstein"], answer:"Isaac Newton"},
-      {q:"What is the unit of electric current?", options:["Ampere","Volt"], answer:"Ampere"},
-      {q:"Which law explains equal and opposite reaction?", options:["Newton’s Third Law","Newton’s Second Law"], answer:"Newton’s Third Law"},
-      {q:"What is the speed of sound in air?", options:["343 m/s","1000 m/s"], answer:"343 m/s"},
-      {q:"Which energy is stored due to position?", options:["Potential","Kinetic"], answer:"Potential"},
-      {q:"What is Ohm’s law?", options:["V=IR","F=ma"], answer:"V=IR"},
-      {q:"Which particle has negative charge?", options:["Electron","Proton"], answer:"Electron"},
-      {q:"What is the unit of frequency?", options:["Hertz","Newton"], answer:"Hertz"},
-      {q:"Which scientist developed relativity?", options:["Einstein","Newton"], answer:"Einstein"},
-      {q:"What is the unit of work?", options:["Joule","Watt"], answer:"Joule"},
-      {q:"Which energy is due to motion?", options:["Kinetic","Potential"], answer:"Kinetic"},
-      {q:"What is the unit of voltage?", options:["Volt","Ampere"], answer:"Volt"},
-    ],
-    Chemistry: [
-      {q:"What is the pH of neutral solution?", options:["7","0"], answer:"7"},
-      {q:"Bond formed by sharing electrons?", options:["Covalent","Ionic"], answer:"Covalent"},
-      {q:"What is the atomic number of oxygen?", options:["8","16"], answer:"8"},
-      {q:"Which bond involves electron transfer?", options:["Ionic","Covalent"], answer:"Ionic"},
-      {q:"What is the chemical symbol for sodium?", options:["Na","S"], answer:"Na"},
-      {q:"Which gas is produced in photosynthesis?", options:["Oxygen","Carbon dioxide"], answer:"Oxygen"},
-      {q:"What is the pH of strong acid?", options:["1","7"], answer:"1"},
-      {q:"Which element has symbol H?", options:["Hydrogen","Helium"], answer:"Hydrogen"},
-      {q:"What is the formula for water?", options:["H2O","CO2"], answer:"H2O"},
-      {q:"Which scientist created the periodic table?", options:["Mendeleev","Dalton"], answer:"Mendeleev"},
-      {q:"What is the unit of molar mass?", options:["g/mol","kg"], answer:"g/mol"},
-      {q:"Which reaction releases energy?", options:["Exothermic","Endothermic"], answer:"Exothermic"},
-      {q:"What is the smallest particle of an element?", options:["Atom","Molecule"], answer:"Atom"},
-      {q:"Which acid is in vinegar?", options:["Acetic acid","Sulfuric acid"], answer:"Acetic acid"},
-      {q:"What is the chemical symbol for gold?", options:["Au","Ag"], answer:"Au"},
-      {q:"Which gas causes rusting?", options:["Oxygen","Nitrogen"], answer:"Oxygen"},
-      {q:"What is the formula for carbon dioxide?", options:["CO2","CO"], answer:"CO2"},
-      {q:"Which polymer is in plastic bottles?", options:["PET","PVC"], answer:"PET"},
-      {q:"What is the charge of a proton?", options:["Positive","Negative"], answer:"Positive"},
-      {q:"Which element has atomic number 1?", options:["Hydrogen","Helium"], answer:"Hydrogen"},
-    ],
-    Earth: [
-      {q:"Main cause of earthquakes?", options:["Tectonic plate movement","Rainfall"], answer:"Tectonic plate movement"},
-      {q:"Which gas causes greenhouse effect?", options:["CO2","O2"], answer:"CO2"},
-      {q:"What is the hardest mineral?", options:["Diamond","Quartz"], answer:"Diamond"},
-      {q:"Which layer of Earth is liquid?", options:["Outer core","Mantle"], answer:"Outer core"},
-      {q:"What is the study of rocks?", options:["Geology","Ecology"], answer:"Geology"},
-      {q:"Which gas is most abundant in atmosphere?", options:["Nitrogen","Oxygen"], answer:"Nitrogen"},
-      {q:"What causes tides?", options:["Moon’s gravity","Sunlight"], answer:"Moon’s gravity"},
-      {q:"Which scale measures earthquakes?", options:["Richter","Beaufort"], answer:"Richter"},
-      {q:"What is the molten rock underground?", options:["Magma","Lava"], answer:"Magma"},
-      {q:"Which planet is known as Red Planet?", options:["Mars","Venus"], answer:"Mars"},
-      {q:"What is the process of water evaporation?", options:["Condensation","Evaporation"], answer:"Evaporation"},
-      {q:"Which fossil fuel is formed from plants?", options:["Coal","Oil"], answer:"Coal"},
-      {q:"What is the ozone layer’s role?", options:["Blocks UV rays","Produces oxygen"], answer:"Blocks UV rays"},
-      {q:"Which scientist proposed continental drift?", options:["Alfred Wegener","Charles Darwin"], answer:"Alfred Wegener"},
-      {q:"What is the study of weather?", options:["Meteorology","Astronomy"], answer:"Meteorology"},
-      {q:"Which planet has rings?", options:["Saturn","Earth"], answer:"Saturn"},
-      {q:"What is the Earth’s largest ocean?", options:["Pacific","Atlantic"], answer:"Pacific"},
-      {q:"Which rock forms from cooling lava?", options:["Igneous","Sedimentary"], an
-        swer:"Igneous"},
-      {q:"What is global warming caused by?", options:["Greenhouse gases","Rainfall"], answer:"Greenhouse gases"},
-      {q:"Which star is closest to Earth?", options:["Sun","Alpha Centauri"], answer:"Sun"},
-    ]
-  };
+  <script>
+    function calculateScore() {
+      let score = 0;
+      const answers = {
+        bio1:"DNA", bio2:"Meiosis", bio3:"Chloroplast", bio4:"Cell", bio5:"Mendel",
+        bio6:"Respiration", bio7:"Evolution", bio8:"Variety", bio9:"Circulatory", bio10:"Genes",
+        phy1:"Newton", phy2:"Newton", phy3:"Potential", phy4:"Longitudinal", phy5:"Current",
+        phy6:"Moving Charges", phy7:"Thermodynamics", phy8:"Gravity", phy9:"Relativity", phy10:"Quantum",
+        chem1:"Atom", chem2:"Periodic Table", chem3:"Covalent", chem4:"pH", chem5:"Reaction",
+        chem6:"Stoichiometry", chem7:"Organic", chem8:"Inorganic", chem9:"Solution", chem10:"Polymers",
+        earth1:"Geology", earth2:"Plate Tectonics", earth3:"Volcano", earth4:"Earthquake", earth5:"Weather",
+        earth6:"Climate", earth7:"Oceanography", earth8:"Astronomy", earth9:"Environmental", earth10:"Resources"
+      };
 
-  function renderQuiz(topic, containerId) {
-    const container = document.getElementById(containerId);
-    quizzes[topic].forEach((item, index) => {
-      const div = document.createElement("div");
-      div.className = "question";
-      div.innerHTML = `
-        <p>${index+1}. ${item.q}</p>
-        ${item.options.map(opt => 
-          `<label><input type="radio" name="${topic}${index}" value="${opt}"> ${opt}</label>`
-        ).join("<br>")}
-        <br><button onclick="checkAnswer('${topic}',${index})">Submit</button>
-        <div id="${topic}${index}Feedback" class="feedback"></div>
-      `;
-      container.appendChild(div);
-    });
-  }
+      for (let key in answers) {
+        const selected = document.querySelector(`input[name="${key}"]:checked`);
+        if (selected && selected.value === answers[key]) {
+          score++;
+        }
+      }
 
-  function checkAnswer(topic, index) {
-    const radios = document.getElementsByName(topic+index);
-    let selected = null;
-    radios.forEach(r => { if(r.checked) selected = r.value; });
-    const feedback = document.getElementById(topic+index+"Feedback");
-    if(selected === quizzes[topic][index].answer) {
-      feedback.innerHTML = `<span class="correct">✅ Correct! Great job!</span>`;
-    } else {
-      feedback.innerHTML = `<span class="wrong">❌ Try again.</span>`;
+      document.getElementById("score").innerHTML = "Your Score: " + score + "/40";
+
+      const reward = document.getElementById("reward");
+      reward.style.display = "block";
+
+      if (score >= 35) {
+        reward.innerHTML = "🏆 Excellent! Science Champion!";
+      } else if (score >= 25) {
+        reward.innerHTML = "🎉 Great job! Keep it up!";
+      } else if (score >= 15) {
+        reward.innerHTML = "👍 Good effort! Keep practicing!";
+      } else {
+        reward.innerHTML = "📖 Don’t give up! Review your notes and try again!";
+      }
     }
-  }
-
-  // Render all quizzes
-  renderQuiz("Biology","bioQuiz");
-  renderQuiz("Physics","phyQuiz");
-  renderQuiz("Chemistry","chemQuiz");
-  renderQuiz("Earth","earthQuiz");
-</script>
+  </script>
+</body>
+</html>
