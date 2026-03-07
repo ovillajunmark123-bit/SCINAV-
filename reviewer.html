@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SciNav | Reviewer Test</title>
+  <title>SciNav | Reviewer Test by Topic</title>
   <link rel="stylesheet" href="style.css">
   <style>
     main { flex: 1; padding: 100px 20px 40px; }
@@ -14,8 +14,8 @@
     .quiz-section label { display: block; margin: 6px 0; }
     button { margin-top: 15px; padding: 10px 20px; border: none; border-radius: 8px; background: #ff6600; color: white; cursor: pointer; transition: 0.3s; }
     button:hover { background: #ff3300; }
-    #score { text-align: center; font-size: 1.5em; margin-top: 20px; color: #fff; }
-    #reward { display: none; text-align: center; font-size: 2em; font-weight: bold; margin-top: 20px; animation: flash 1s infinite alternate; }
+    .score { text-align: center; font-size: 1.2em; margin-top: 10px; color: #fff; }
+    .reward { display: none; text-align: center; font-size: 1.5em; font-weight: bold; margin-top: 10px; animation: flash 1s infinite alternate; }
     @keyframes flash { from { color: #00ffcc; } to { color: #ffcc00; } }
     nav { background: linear-gradient(90deg, #004080, #0080ff); padding: 12px; position: fixed; width: 100%; top: 0; z-index: 10; }
     nav ul { list-style: none; display: flex; justify-content: space-around; }
@@ -38,14 +38,13 @@
 
   <!-- Main Content -->
   <main>
-    <h2>Reviewer Test 🎯</h2>
-    <p style="text-align:center;">Answer the questions based on the information from the Knowledge Search page.</p>
+    <h2>Reviewer Test by Topic 🎯</h2>
+    <p style="text-align:center;">Answer each topic’s 10 questions and submit separately to see your score.</p>
 
-    <form id="quizForm">
-      <!-- Biology -->
-      <div class="quiz-section">
-        <h3>Biology 🧬</h3>
-        <p>Q1: What molecule carries genetic instructions?</p>
+    <!-- Biology -->
+    <div class="quiz-section" id="biology">
+      <h3>Biology 🧬</h3>
+      <p>Q1: What molecule carries genetic instructions?</p>
         <label><input type="radio" name="bio1" value="DNA"> DNA</label>
         <label><input type="radio" name="bio1" value="RNA"> RNA</label>
 
@@ -84,12 +83,19 @@
         <p>Q10: What carries traits from parents to offspring?</p>
         <label><input type="radio" name="bio10" value="Genes"> Genes</label>
         <label><input type="radio" name="bio10" value="Proteins"> Proteins</label>
+    </div>
+    
+      <div style="text-align:center;">
+        <button type="button" onclick="calculateTopicScore('bio')">Submit Biology</button>
       </div>
+      <div class="score" id="bioScore"></div>
+      <div class="reward" id="bioReward"></div>
+    </div>
 
-      <!-- Physics -->
-      <div class="quiz-section">
-        <h3>Physics ⚛️</h3>
-        <p>Q1: Which law explains motion and forces?</p>
+    <!-- Physics -->
+    <div class="quiz-section" id="physics">
+      <h3>Physics ⚛️</h3>
+      <p>Q1: Which law explains motion and forces?</p>
         <label><input type="radio" name="phy1" value="Newton"> Newton’s Laws</label>
         <label><input type="radio" name="phy1" value="Relativity"> Relativity</label>
 
@@ -128,12 +134,19 @@
         <p>Q10: Which branch of physics studies atomic particles?</p>
         <label><input type="radio" name="phy10" value="Quantum"> Quantum Mechanics</label>
         <label><input type="radio" name="phy10" value="Thermodynamics"> Thermodynamics</label>
+    </div>
+    
+      <div style="text-align:center;">
+        <button type="button" onclick="calculateTopicScore('phy')">Submit Physics</button>
       </div>
+      <div class="score" id="phyScore"></div>
+      <div class="reward" id="phyReward"></div>
+    </div>
 
-      <!-- Chemistry -->
-      <div class="quiz-section">
-        <h3>Chemistry ⚗️</h3>
-        <p>Q1: What is the smallest unit of matter?</p>
+    <!-- Chemistry -->
+    <div class="quiz-section" id="chemistry">
+      <h3>Chemistry ⚗️</h3>
+      <p>Q1: What is the smallest unit of matter?</p>
         <label><input type="radio" name="chem1" value="Atom"> Atom</label>
         <label><input type="radio" name="chem1" value="Molecule"> Molecule</label>
 
@@ -172,12 +185,19 @@
         <p>Q10: What large molecules include plastics?</p>
         <label><input type="radio" name="chem10" value="Polymers"> Polymers</label>
         <label><input type="radio" name="chem10" value="Atoms"> Atoms</label>
+    </div>
+    
+      <div style="text-align:center;">
+        <button type="button" onclick="calculateTopicScore('chem')">Submit Chemistry</button>
       </div>
+      <div class="score" id="chemScore"></div>
+      <div class="reward" id="chemReward"></div>
+    </div>
 
-      <!-- Earth Science -->
-      <div class="quiz-section">
-        <h3>Earth Science 🌍</h3>
-        <p>Q1: What branch studies rocks and Earth’s structure?</p>
+    <!-- Earth Science -->
+    <div class="quiz-section" id="earthscience">
+      <h3>Earth Science 🌍</h3>
+      <p>Q1: What branch studies rocks and Earth’s structure?</p>
         <label><input type="radio" name="earth1" value="Geology"> Geology</label>
         <label><input type="radio" name="earth1" value="Meteorology"> Meteorology</label>
 
@@ -216,15 +236,14 @@
         <p>Q10: What term describes materials like water, minerals, and fuels?</p>
         <label><input type="radio" name="earth10" value="Resources"> Natural Resources</label>
         <label><input type="radio" name="earth10" value="Solutions"> Solutions</label>
-      </div>
-
+    </div>
+    
       <div style="text-align:center;">
-        <button type="button" onclick="calculateScore()">Submit Answers</button>
+        <button type="button" onclick="calculateTopicScore('earth')">Submit Earth Science</button>
       </div>
-    </form>
-
-    <div id="score"></div>
-    <div id="reward"></div>
+      <div class="score" id="earthScore"></div>
+      <div class="reward" id="earthReward"></div>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -233,39 +252,37 @@
   </footer>
 
   <script>
-    function calculateScore() {
-      let score = 0;
-      const answers = {
-        bio1:"DNA", bio2:"Meiosis", bio3:"Chloroplast", bio4:"Cell", bio5:"Mendel",
-        bio6:"Respiration", bio7:"Evolution", bio8:"Variety", bio9:"Circulatory", bio10:"Genes",
-        phy1:"Newton", phy2:"Newton", phy3:"Potential", phy4:"Longitudinal", phy5:"Current",
-        phy6:"Moving Charges", phy7:"Thermodynamics", phy8:"Gravity", phy9:"Relativity", phy10:"Quantum",
-        chem1:"Atom", chem2:"Periodic Table", chem3:"Covalent", chem4:"pH", chem5:"Reaction",
-        chem6:"Stoichiometry", chem7:"Organic", chem8:"Inorganic", chem9:"Solution", chem10:"Polymers",
-        earth1:"Geology", earth2:"Plate Tectonics", earth3:"Volcano", earth4:"Earthquake", earth5:"Weather",
-        earth6:"Climate", earth7:"Oceanography", earth8:"Astronomy", earth9:"Environmental", earth10:"Resources"
-      };
+    const answers = {
+      bio1:"DNA", bio2:"Meiosis", bio3:"Chloroplast", bio4:"Cell", bio5:"Mendel",
+      bio6:"Respiration", bio7:"Evolution", bio8:"Variety", bio9:"Circulatory", bio10:"Genes",
+      phy1:"Newton", phy2:"Newton", phy3:"Potential", phy4:"Longitudinal", phy5:"Current",
+      phy6:"Moving Charges", phy7:"Thermodynamics", phy8:"Gravity", phy9:"Relativity", phy10:"Quantum",
+      chem1:"Atom", chem2:"Periodic Table", chem3:"Covalent", chem4:"pH", chem5:"Reaction",
+      chem6:"Stoichiometry", chem7:"Organic", chem8:"Inorganic", chem9:"Solution", chem10:"Polymers",
+      earth1:"Geology", earth2:"Plate Tectonics", earth3:"Volcano", earth4:"Earthquake", earth5:"Weather",
+      earth6:"Climate", earth7:"Oceanography", earth8:"Astronomy", earth9:"Environmental", earth10:"Resources"
+    };
 
-      for (let key in answers) {
+    function calculateTopicScore(topic) {
+      let score = 0;
+      for (let i=1; i<=10; i++) {
+        const key = topic+i;
         const selected = document.querySelector(`input[name="${key}"]:checked`);
         if (selected && selected.value === answers[key]) {
           score++;
         }
       }
-
-      document.getElementById("score").innerHTML = "Your Score: " + score + "/40";
-
-      const reward = document.getElementById("reward");
+      document.getElementById(topic+"Score").innerHTML = "Your Score: " + score + "/10";
+      const reward = document.getElementById(topic+"Reward");
       reward.style.display = "block";
-
-      if (score >= 35) {
-        reward.innerHTML = "🏆 Excellent! Science Champion!";
-      } else if (score >= 25) {
-        reward.innerHTML = "🎉 Great job! Keep it up!";
-      } else if (score >= 15) {
-        reward.innerHTML = "👍 Good effort! Keep practicing!";
+      if (score === 10) {
+        reward.innerHTML = "🏆 Perfect! Science Master!";
+      } else if (score >= 7) {
+        reward.innerHTML = "🎉 Great job!";
+      } else if (score >= 4) {
+        reward.innerHTML = "👍 Good effort!";
       } else {
-        reward.innerHTML = "📖 Don’t give up! Review your notes and try again!";
+        reward.innerHTML = "📖 Keep practicing!";
       }
     }
   </script>
