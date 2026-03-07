@@ -4,171 +4,151 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SciNav | Case Studies</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #ffecd2, #fcb69f, #a1c4fd, #c2e9fb);
-      background-size: 400% 400%;
-      animation: gradientBG 20s ease infinite;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    nav {
-      background: rgba(0,0,0,0.6);
-      padding: 12px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: space-around;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    main {
-      flex: 1;
-      padding: 20px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #004080;
-      margin-bottom: 20px;
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      width: 80%;
-      max-width: 400px;
-      border-radius: 8px;
-      border: none;
-      margin: 0 auto 20px auto;
-      display: block;
-      font-size: 1em;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .study {
-      background: rgba(255,255,255,0.9);
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-    }
-    .study:hover { transform: scale(1.05); }
-
-    .study h3 {
-      color: #ff6600;
-      margin-bottom: 10px;
-    }
-
-    .study p {
-      font-size: 0.95em;
-      margin-bottom: 10px;
-    }
-
-    .study a {
-      color: #004080;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    footer {
-      background: rgba(0,0,0,0.6);
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-    }
+    main { flex: 1; padding: 100px 20px 40px; }
+    h2 { text-align: center; color: #00ffcc; margin-bottom: 20px; font-size: 2.2em; animation: fadeIn 2s ease; }
+    .case-card { background: rgba(0,0,0,0.6); padding: 20px; border-radius: 12px; margin: 20px auto; max-width: 800px; animation: fadeIn 2s ease; }
+    .case-card h3 { color: #ffcc00; margin-bottom: 10px; }
+    .case-card p { margin-bottom: 10px; }
+    .case-card a { display: inline-block; margin-top: 8px; padding: 8px 15px; border-radius: 6px; background: #00ffcc; color: #000; text-decoration: none; font-weight: bold; transition: 0.3s; }
+    .case-card a:hover { background: #ffcc00; color: #000; }
+    nav { background: linear-gradient(90deg, #004080, #0080ff); padding: 12px; position: fixed; width: 100%; top: 0; z-index: 10; }
+    nav ul { list-style: none; display: flex; justify-content: space-around; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 6px; }
+    nav ul li a:hover { color: #ffcc00; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
   <!-- Navigation Bar -->
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="search.html">Knowledge Search</a></li>
-      <li><a href="reviewer.html">Reviewer</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="search.html">🔎 Knowledge Search</a></li>
+      <li><a href="reviewer.html">📘 Reviewer</a></li>
+      <li><a href="case-studies.html">📑 Case Studies</a></li>
+      <li><a href="interactive.html">🧪 Experiments</a></li>
     </ul>
   </nav>
 
   <!-- Main Content -->
   <main>
-    <h2>Science Case Studies 🔎</h2>
-    <input type="text" id="searchBox" placeholder="Search case studies...">
-    <div class="grid" id="studiesGrid"></div>
-  </main>
+  <h2>Science Case Studies 📑</h2>
+  <p style="text-align:center;">Browse different case studies by subject. Click the links to read more.</p>
+
+  <!-- Biology Case Studies -->
+  <div class="case-card">
+    <h3>Biology: Deforestation & Biodiversity</h3>
+    <p>Explore how forest loss impacts species diversity.</p>
+    <a href="https://www.nationalgeographic.com/environment/article/deforestation" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Biology: Genetics in Agriculture</h3>
+    <p>Learn how genetic engineering improves crop yield.</p>
+    <a href="https://www.britannica.com/science/genetically-modified-organism" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Biology: Human Genome Project</h3>
+    <p>Understand mapping of human DNA.</p>
+    <a href="https://www.genome.gov/human-genome-project" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Biology: Vaccination & Immunity</h3>
+    <p>Case study on vaccines preventing diseases.</p>
+    <a href="https://www.cdc.gov/vaccines" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Biology: Coral Reef Conservation</h3>
+    <p>Study efforts to protect marine biodiversity.</p>
+    <a href="https://www.noaa.gov/coral-reef-conservation" target="_blank">Read Case Study</a>
+  </div>
+
+  <!-- Physics Case Studies -->
+  <div class="case-card">
+    <h3>Physics: Renewable Energy Efficiency</h3>
+    <p>Compare solar panels and wind turbines.</p>
+    <a href="https://www.energy.gov/eere/renewable-energy" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Physics: Space Exploration & Gravity</h3>
+    <p>How gravity assists spacecraft trajectories.</p>
+    <a href="https://www.nasa.gov/gravity-assist" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Physics: Particle Accelerators</h3>
+    <p>Case study on CERN and Higgs boson discovery.</p>
+    <a href="https://home.cern/science/accelerators" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Physics: Nuclear Energy</h3>
+    <p>Study of nuclear power plants and safety.</p>
+    <a href="https://www.world-nuclear.org" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Physics: Climate Modeling</h3>
+    <p>Physics-based models predicting climate change.</p>
+    <a href="https://climate.nasa.gov" target="_blank">Read Case Study</a>
+  </div>
+
+  <!-- Chemistry Case Studies -->
+  <div class="case-card">
+    <h3>Chemistry: Plastic Pollution in Oceans</h3>
+    <p>Investigate plastics degrading into microplastics.</p>
+    <a href="https://www.unep.org/plastic-pollution" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Chemistry: Green Chemistry Innovations</h3>
+    <p>Eco-friendly chemical processes reducing waste.</p>
+    <a href="https://www.acs.org/greenchemistry" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Chemistry: Water Purification</h3>
+    <p>Case study on chemical filtration methods.</p>
+    <a href="https://www.epa.gov/water-research" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Chemistry: Drug Development</h3>
+    <p>How chemistry drives pharmaceutical breakthroughs.</p>
+    <a href="https://www.fda.gov/drugs" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Chemistry: Atmospheric Chemistry</h3>
+    <p>Study of ozone depletion and air pollution.</p>
+    <a href="https://www.epa.gov/ozone-layer-protection" target="_blank">Read Case Study</a>
+  </div>
+
+  <!-- Earth Science Case Studies -->
+  <div class="case-card">
+    <h3>Earth Science: Climate Change & Agriculture</h3>
+    <p>Examine rising temperatures and crop yields.</p>
+    <a href="https://www.ipcc.ch/reports/" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Earth Science: Natural Disasters & Preparedness</h3>
+    <p>Community adaptation to earthquakes and typhoons.</p>
+    <a href="https://www.redcross.org/get-help/disaster-relief.html" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Earth Science: Ocean Acidification</h3>
+    <p>Impact of CO₂ on marine ecosystems.</p>
+    <a href="https://www.noaa.gov/education/resource-collections/ocean-coasts/ocean-acidification" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Earth Science: Urban Heat Islands</h3>
+    <p>Study of temperature rise in cities.</p>
+    <a href="https://www.epa.gov/heatislands" target="_blank">Read Case Study</a>
+  </div>
+  <div class="case-card">
+    <h3>Earth Science: Renewable Resources</h3>
+    <p>Case study on sustainable resource management.</p>
+    <a href="https://www.un.org/sustainabledevelopment/energy/" target="_blank">Read Case Study</a>
+  </div>
+      </main>
 
   <!-- Footer -->
   <footer>
-    © 2026 SciNav | Case Studies Page
+    © 2026 SciNav | Case Studies
   </footer>
-
-  <script>
-    const studies = [
-      {title:"CRISPR Gene Editing", abstract:"Explores CRISPR-Cas9 technology for modifying DNA sequences.", link:"#"},
-      {title:"COVID-19 Vaccine Development", abstract:"Examines rapid development of mRNA vaccines.", link:"#"},
-      {title:"Stem Cell Therapy", abstract:"Investigates how stem cells regenerate damaged tissues.", link:"#"},
-      {title:"Human Microbiome", abstract:"Studies the role of gut bacteria in health.", link:"#"},
-      {title:"Biodiversity Loss", abstract:"Analyzes species decline due to deforestation.", link:"#"},
-      {title:"Plastic Pollution", abstract:"Evaluates biodegradable plastics and their impact.", link:"#"},
-      {title:"Green Chemistry", abstract:"Focuses on sustainable chemical reactions.", link:"#"},
-      {title:"Nanoparticles in Drug Delivery", abstract:"Explores targeted drug delivery using nanoparticles.", link:"#"},
-      {title:"Water Purification", abstract:"Investigates activated carbon for clean water.", link:"#"},
-      {title:"Battery Chemistry", abstract:"Examines lithium-ion and solid-state batteries.", link:"#"},
-      {title:"Gravitational Waves", abstract:"Discusses LIGO’s detection of spacetime ripples.", link:"#"},
-      {title:"Quantum Computing", abstract:"Explores quantum mechanics applied to computing.", link:"#"},
-      {title:"Solar Energy Efficiency", abstract:"Studies improvements in photovoltaic cells.", link:"#"},
-      {title:"Projectile Motion in Sports", abstract:"Analyzes ball trajectories in basketball and soccer.", link:"#"}
-    ];
-
-    function renderStudies(list) {
-      const grid = document.getElementById("studiesGrid");
-      grid.innerHTML = "";
-      list.forEach(study => {
-        const div = document.createElement("div");
-        div.className = "study";
-        div.innerHTML = `
-          <h3>${study.title}</h3>
-          <p>${study.abstract}</p>
-          <a href="${study.link}">Read More</a>
-        `;
-        grid.appendChild(div);
-      });
-    }
-
-    function searchStudies() {
-      const query = document.getElementById("searchBox").value.toLowerCase();
-      const filtered = studies.filter(s => 
-        s.title.toLowerCase().includes(query) || s.abstract.toLowerCase().includes(query)
-      );
-      renderStudies(filtered);
-    }
-
-    document.getElementById("searchBox").addEventListener("input", searchStudies);
-
-    // Initial render
-    renderStudies(studies);
-  </script>
 </body>
 </html>
