@@ -3,194 +3,125 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SciNav | Interactive Experiments</title>
+  <title>SciNav | Experiments</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
-      background-size: 400% 400%;
-      animation: gradientBG 20s ease infinite;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    @keyframes gradientBG {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    nav {
-      background: rgba(0,0,0,0.6);
-      padding: 12px;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: space-around;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    main {
-      flex: 1;
-      padding: 20px;
-    }
-
-    h2 {
-      text-align: center;
-      color: #004080;
-      margin-bottom: 20px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .experiment {
-      background: rgba(255,255,255,0.9);
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
-      text-align: center;
-    }
-    .experiment:hover { transform: scale(1.05); }
-
-    .experiment h3 {
-      color: #ff6600;
-      margin-bottom: 10px;
-    }
-
-    .experiment button {
-      padding: 8px 15px;
-      background: #004080;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .experiment button:hover { background: #0080ff; }
-
-    #videoPlayer {
-      margin-top: 30px;
-      text-align: center;
-    }
-    iframe {
-      width: 90%;
-      max-width: 600px;
-      height: 350px;
-      border-radius: 10px;
-      border: none;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    }
-
-    footer {
-      background: rgba(0,0,0,0.6);
-      color: white;
-      text-align: center;
-      padding: 15px;
-      font-size: 0.9em;
-    }
+    main { flex: 1; padding: 100px 20px 40px; }
+    h2 { text-align: center; color: #00ffcc; margin-bottom: 20px; font-size: 2.2em; animation: fadeIn 2s ease; }
+    .experiment-card { background: rgba(0,0,0,0.6); padding: 20px; border-radius: 12px; margin: 20px auto; max-width: 800px; animation: fadeIn 2s ease; }
+    .experiment-card h3 { color: #ffcc00; margin-bottom: 10px; }
+    .experiment-card p { margin-bottom: 10px; }
+    .steps { display: none; margin-top: 10px; line-height: 1.6; }
+    button { margin: 5px; padding: 8px 15px; border: none; border-radius: 8px; background: #ff6600; color: white; cursor: pointer; transition: 0.3s; }
+    button:hover { background: #ff3300; }
+    .reward { display: none; text-align: center; font-size: 1.5em; font-weight: bold; margin-top: 10px; animation: flash 1s infinite alternate; }
+    @keyframes flash { from { color: #00ffcc; } to { color: #ffcc00; } }
+    nav { background: linear-gradient(90deg, #004080, #0080ff); padding: 12px; position: fixed; width: 100%; top: 0; z-index: 10; }
+    nav ul { list-style: none; display: flex; justify-content: space-around; }
+    nav ul li a { color: white; text-decoration: none; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 6px; }
+    nav ul li a:hover { color: #ffcc00; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
   <!-- Navigation Bar -->
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="search.html">Knowledge Search</a></li>
-      <li><a href="reviewer.html">Reviewer</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
-      <li><a href="interactive.html">Experiments</a></li>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="search.html">🔎 Knowledge Search</a></li>
+      <li><a href="reviewer.html">📘 Reviewer</a></li>
+      <li><a href="case-studies.html">📑 Case Studies</a></li>
+      <li><a href="interactive.html">🧪 Experiments</a></li>
     </ul>
   </nav>
 
   <!-- Main Content -->
   <main>
-    <h2>Interactive Experiments 🎥</h2>
-    <div class="grid" id="experimentGrid"></div>
-    <div id="videoPlayer"></div>
+    <h2>Interactive Experiments 🧪</h2>
+    <p style="text-align:center;">Try these simple experiments and mark them as completed to earn rewards!</p>
+
+    <!-- Experiment 1 -->
+    <div class="experiment-card">
+      <h3>Biology: Photosynthesis in Leaves 🌱</h3>
+      <p>Observe how leaves produce starch when exposed to sunlight.</p>
+      <button onclick="toggleSteps('exp1')">View Steps</button>
+      <button onclick="completeExperiment('exp1Reward')">Mark Completed</button>
+      <div class="steps" id="exp1">
+        <ol>
+          <li>Take a green leaf and boil it in water for 2 minutes.</li>
+          <li>Place the leaf in alcohol and heat until chlorophyll is removed.</li>
+          <li>Rinse the leaf in warm water.</li>
+          <li>Add iodine solution — blue-black color shows starch.</li>
+        </ol>
+      </div>
+      <div class="reward" id="exp1Reward"></div>
+    </div>
+
+    <!-- Experiment 2 -->
+    <div class="experiment-card">
+      <h3>Physics: Balloon Rocket 🚀</h3>
+      <p>Demonstrate Newton’s Third Law using a balloon.</p>
+      <button onclick="toggleSteps('exp2')">View Steps</button>
+      <button onclick="completeExperiment('exp2Reward')">Mark Completed</button>
+      <div class="steps" id="exp2">
+        <ol>
+          <li>Thread a straw onto a string and tape the string across a room.</li>
+          <li>Blow up a balloon and tape it to the straw.</li>
+          <li>Release the balloon — it rockets forward!</li>
+        </ol>
+      </div>
+      <div class="reward" id="exp2Reward"></div>
+    </div>
+
+    <!-- Experiment 3 -->
+    <div class="experiment-card">
+      <h3>Chemistry: Vinegar & Baking Soda Volcano 🌋</h3>
+      <p>Observe an acid-base reaction producing carbon dioxide.</p>
+      <button onclick="toggleSteps('exp3')">View Steps</button>
+      <button onclick="completeExperiment('exp3Reward')">Mark Completed</button>
+      <div class="steps" id="exp3">
+        <ol>
+          <li>Place baking soda inside a small container.</li>
+          <li>Add vinegar slowly.</li>
+          <li>Watch the fizzing reaction as CO₂ gas is released.</li>
+        </ol>
+      </div>
+      <div class="reward" id="exp3Reward"></div>
+    </div>
+
+    <!-- Experiment 4 -->
+    <div class="experiment-card">
+      <h3>Earth Science: Water Filtration 🌍</h3>
+      <p>Learn how soil and sand filter dirty water.</p>
+      <button onclick="toggleSteps('exp4')">View Steps</button>
+      <button onclick="completeExperiment('exp4Reward')">Mark Completed</button>
+      <div class="steps" id="exp4">
+        <ol>
+          <li>Fill a plastic bottle with layers of gravel, sand, and charcoal.</li>
+          <li>Pour dirty water through the filter.</li>
+          <li>Observe cleaner water dripping out.</li>
+        </ol>
+      </div>
+      <div class="reward" id="exp4Reward"></div>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer>
-    © 2026 SciNav | Interactive Experiments Page
+    © 2026 SciNav | Interactive Experiments
   </footer>
 
   <script>
-    const experiments = [
-      {title:"Microscope Observation of Onion Cells", video:"https://www.youtube.com/embed/0fKBhvDjuy0"},
-      {title:"DNA Extraction from Strawberries", video:"https://www.youtube.com/embed/5MQdXjM7zeY"},
-      {title:"Photosynthesis Rate in Aquatic Plants", video:"https://www.youtube.com/embed/eo5XndJaz-Y"},
-      {
-
-  <!-- Main Content -->
-  <main>
-    <h2>Interactive Experiments 🎥</h2>
-    <div class="grid" id="experimentGrid"></div>
-    <div id="videoPlayer"></div>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    © 2026 SciNav | Interactive Experiments Page
-  </footer>
-
-  <script>
-    const experiments = [
-      {title:"Microscope Observation of Onion Cells", video:"https://www.youtube.com/embed/0fKBhvDjuy0"},
-      {title:"DNA Extraction from Strawberries", video:"https://www.youtube.com/embed/5MQdXjM7zeY"},
-      {title:"Photosynthesis Rate in Aquatic Plants", video:"https://www.youtube.com/embed/eo5XndJaz-Y"},
-      {title:"Acid-Base Titration", video:"https://www.youtube.com/embed/3kK7tZzQ0Zk"},
-      {title:"Electrolysis of Water", video:"https://www.youtube.com/embed/4z9I6Zme7yQ"},
-      {title:"Chromatography of Ink", video:"https://www.youtube.com/embed/2VZ6l0wYfZk"},
-      {title:"Pendulum Motion", video:"https://www.youtube.com/embed/7OVzlxJ7nXU"},
-      {title:"Projectile Motion with a Ball", video:"https://www.youtube.com/embed/2zKqzQ0Zk"},
-      {title:"Newton’s Third Law with Balloons", video:"https://www.youtube.com/embed/3kK7tZzQ0Zk"},
-      {title:"Volcano Model", video:"https://www.youtube.com/embed/4z9I6Zme7yQ"},
-      {title:"Earthquake Simulation", video:"https://www.youtube.com/embed/5MQdXjM7zeY"},
-      {title:"Magnetism with Iron Filings", video:"https://www.youtube.com/embed/eo5XndJaz-Y"},
-      {title:"Simple Circuit with Bulb", video:"https://www.youtube.com/embed/0fKBhvDjuy0"},
-      {title:"Water Filtration Experiment", video:"https://www.youtube.com/embed/2VZ6l0wYfZk"},
-      {title:"Density Tower", video:"https://www.youtube.com/embed/7OVzlxJ7nXU"},
-      {title:"Solar Energy with Panels", video:"https://www.youtube.com/embed/3kK7tZzQ0Zk"},
-      {title:"Wind Energy Turbine Model", video:"https://www.youtube.com/embed/4z9I6Zme7yQ"},
-      {title:"Greenhouse Effect Simulation", video:"https://www.youtube.com/embed/5MQdXjM7zeY"},
-      {title:"Fossil Formation Model", video:"https://www.youtube.com/embed/eo5XndJaz-Y"},
-      {title:"Rocket Launch with Baking Soda", video:"https://www.youtube.com/embed/0fKBhvDjuy0"}
-    ];
-
-    function renderExperiments() {
-      const grid = document.getElementById("experimentGrid");
-      experiments.forEach((exp, index) => {
-        const div = document.createElement("div");
-        div.className = "experiment";
-        div.innerHTML = `
-          <h3>${index+1}. ${exp.title}</h3>
-          <button onclick="showVideo('${exp.video}')">Watch Experiment</button>
-        `;
-        grid.appendChild(div);
-      });
+    function toggleSteps(id) {
+      const steps = document.getElementById(id);
+      steps.style.display = (steps.style.display === "block") ? "none" : "block";
     }
 
-    function showVideo(link) {
-      const player = document.getElementById("videoPlayer");
-      player.innerHTML = `<iframe src="${link}" allowfullscreen></iframe>`;
+    function completeExperiment(rewardId) {
+      const reward = document.getElementById(rewardId);
+      reward.style.display = "block";
+      reward.innerHTML = "🎉 Well done! You completed this experiment!";
     }
-
-    // Initial render
-    renderExperiments();
   </script>
 </body>
-  </html>
+</html>
