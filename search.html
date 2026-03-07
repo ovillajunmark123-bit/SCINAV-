@@ -51,6 +51,38 @@
       text-align: left;
       line-height: 1.6;
     }
+    .section ul li a {
+      color: #00ffcc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .section ul li a:hover {
+      color: #ffcc00;
+      text-decoration: underline;
+    }
+    nav {
+      background: linear-gradient(90deg, #004080, #0080ff);
+      padding: 12px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 10;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    nav ul li a:hover { color: #ffcc00; }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -61,11 +93,11 @@
   <!-- Navigation Bar -->
   <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="search.html">Knowledge Search</a></li>
-      <li><a href="reviewer.html">Reviewer</a></li>
-      <li><a href="case-studies.html">Case Studies</a></li>
-      <li><a href="interactive.html">Experiments</a></li>
+      <li><a href="index.html">🏠 Home</a></li>
+      <li><a href="search.html">🔎 Knowledge Search</a></li>
+      <li><a href="reviewer.html">📘 Reviewer</a></li>
+      <li><a href="case-studies.html">📑 Case Studies</a></li>
+      <li><a href="interactive.html">🧪 Experiments</a></li>
     </ul>
   </nav>
 
@@ -81,16 +113,16 @@
     <div class="section" data-topic="biology">
       <h3>Biology 🧬</h3>
       <ul>
-        <li>Cell Theory – All living things are made of cells.</li>
-        <li>DNA – Genetic instructions for life.</li>
-        <li>Mitosis – Cell division for growth.</li>
-        <li>Meiosis – Produces gametes.</li>
-        <li>Photosynthesis – Plants convert sunlight.</li>
-        <li>Respiration – Energy release from glucose.</li>
-        <li>Genetics – Study of heredity.</li>
-        <li>Evolution – Natural selection.</li>
-        <li>Ecology – Organism interactions.</li>
-        <li>Human Systems – Circulatory, respiratory, nervous.</li>
+        <li><a href="https://www.nature.com/subjects/cell-biology" target="_blank">Cell Theory – All living things are made of cells.</a></li>
+        <li><a href="https://www.genome.gov/genetics-glossary/DNA" target="_blank">DNA – Genetic instructions for life.</a></li>
+        <li><a href="https://www.britannica.com/science/mitosis" target="_blank">Mitosis – Cell division for growth.</a></li>
+        <li><a href="https://www.britannica.com/science/meiosis" target="_blank">Meiosis – Produces gametes.</a></li>
+        <li><a href="https://www.nationalgeographic.org/encyclopedia/photosynthesis/" target="_blank">Photosynthesis – Plants convert sunlight.</a></li>
+        <li><a href="https://www.britannica.com/science/cellular-respiration" target="_blank">Respiration – Energy release from glucose.</a></li>
+        <li><a href="https://www.genome.gov/genetics-glossary/Genetics" target="_blank">Genetics – Study of heredity.</a></li>
+        <li><a href="https://www.britannica.com/science/evolution-scientific-theory" target="_blank">Evolution – Natural selection.</a></li>
+        <li><a href="https://www.nationalgeographic.org/encyclopedia/ecology/" target="_blank">Ecology – Organism interactions.</a></li>
+        <li><a href="https://www.britannica.com/science/human-body" target="_blank">Human Systems – Circulatory, respiratory, nervous.</a></li>
       </ul>
     </div>
 
@@ -98,33 +130,33 @@
     <div class="section" data-topic="physics">
       <h3>Physics ⚛️</h3>
       <ul>
-        <li>Newton’s Laws – Motion rules.</li>
-        <li>Force – Push or pull.</li>
-        <li>Energy – Kinetic & potential.</li>
-        <li>Waves – Sound & light.</li>
-        <li>Electricity – Flow of charge.</li>
-        <li>Magnetism – Magnetic fields.</li>
-        <li>Thermodynamics – Heat transfer.</li>
-        <li>Gravity – Attraction between masses.</li>
-        <li>Relativity – Einstein’s theory.</li>
-        <li>Quantum Mechanics – Atomic physics.</li>
+        <li><a href="https://www.britannica.com/science/Newtons-laws-of-motion" target="_blank">Newton’s Laws – Motion rules.</a></li>
+        <li><a href="https://www.britannica.com/science/force" target="_blank">Force – Push or pull.</a></li>
+        <li><a href="https://www.britannica.com/science/energy" target="_blank">Energy – Kinetic & potential.</a></li>
+        <li><a href="https://www.britannica.com/science/wave" target="_blank">Waves – Sound & light.</a></li>
+        <li><a href="https://www.britannica.com/science/electricity" target="_blank">Electricity – Flow of charge.</a></li>
+        <li><a href="https://www.britannica.com/science/magnetism" target="_blank">Magnetism – Magnetic fields.</a></li>
+        <li><a href="https://www.britannica.com/science/thermodynamics" target="_blank">Thermodynamics – Heat transfer.</a></li>
+        <li><a href="https://www.britannica.com/science/gravity" target="_blank">Gravity – Attraction between masses.</a></li>
+        <li><a href="https://www.britannica.com/science/relativity" target="_blank">Relativity – Einstein’s theory.</a></li>
+        <li><a href="https://www.britannica.com/science/quantum-mechanics" target="_blank">Quantum Mechanics – Atomic physics.</a></li>
       </ul>
     </div>
 
-    <!-- Chemistry -->
+   <!-- Chemistry -->
     <div class="section" data-topic="chemistry">
       <h3>Chemistry ⚗️</h3>
       <ul>
-        <li>Atom – Smallest unit of matter.</li>
-        <li>Periodic Table – Elements chart.</li>
-        <li>Chemical Bonds – Ionic, covalent.</li>
-        <li>Acids & Bases – pH scale.</li>
-        <li>Reactions – Transformation of substances.</li>
-        <li>Stoichiometry – Reaction calculations.</li>
-        <li>Organic Chemistry – Carbon compounds.</li>
-        <li>Inorganic Chemistry – Non‑carbon compounds.</li>
-        <li>Solutions – Solute + solvent.</li>
-        <li>Polymers – Plastics & biomolecules.</li>
+        <li><a href="https://www.britannica.com/science/atom" target="_blank">Atom – Smallest unit of matter.</a></li>
+        <li><a href="https://www.britannica.com/science/periodic-table" target="_blank">Periodic Table – Elements chart.</a></li>
+        <li><a href="https://www.britannica.com/science/chemical-bond" target="_blank">Chemical Bonds – Ionic, covalent.</a></li>
+        <li><a href="https://www.britannica.com/science/acid" target="_blank">Acids & Bases – pH scale.</a></li>
+        <li><a href="https://www.britannica.com/science/chemical-reaction" target="_blank">Reactions – Transformation of substances.</a></li>
+        <li><a href="https://www.britannica.com/science/stoichiometry" target="_blank">Stoichiometry – Reaction calculations.</a></li>
+        <li><a href="https://www.britannica.com/science/organic-chemistry" target="_blank">Organic Chemistry – Carbon compounds.</a></li>
+        <li><a href="https://www.britannica.com/science/inorganic-chemistry" target="_blank">Inorganic Chemistry – Non‑carbon compounds.</a></li>
+        <li><a href="https://www.britannica.com/science/solution-chemistry" target="_blank">Solutions – Solute + solvent.</a></li>
+        <li><a href="https://www.britannica.com/science/polymer" target="_blank">Polymers – Plastics & biomolecules.</a></li>
       </ul>
     </div>
 
@@ -132,22 +164,26 @@
     <div class="section" data-topic="earth science">
       <h3>Earth Science 🌍</h3>
       <ul>
-        <li>Geology – Rocks & Earth’s structure.</li>
-        <li>Plate Tectonics – Earth’s plates movement.</li>
-        <li>Volcanoes – Magma eruptions.</li>
-        <li>Earthquakes – Tectonic shaking.</li>
-        <li>Weather – Short‑term conditions.</li>
-        <li>Climate – Long‑term patterns.</li>
-        <li>Oceanography – Oceans & currents.</li>
-        <li>Astronomy – Celestial bodies.</li>
-        <li>Environmental Science – Human impacts.</li>
-        <li>Natural Resources – Water, minerals, fuels.</li>
+        <li><a href="https://www.britannica.com/science/geology" target="_blank">Geology – Rocks & Earth’s structure.</a></li>
+        <li><a href="https://www.britannica.com/science/plate-tectonics" target="_blank">Plate Tectonics – Earth’s plates movement.</a></li>
+        <li><a href="https://www.britannica.com/science/volcano" target="_blank">Volcanoes – Magma eruptions.</a></li>
+        <li><a href="https://www.britannica.com/science/earthquake-geology" target="_blank">Earthquakes – Tectonic shaking.</a></li>
+        <li><a href="https://www.britannica.com/science/weather" target="_blank">Weather – Short‑term conditions.</a></li>
+        <li><a href="https://www.britannica.com/science/climate" target="_blank">Climate – Long‑term patterns.</a></li>
+        <li><a href="https://www.britannica.com/science/oceanography" target="_blank">Oceanography – Oceans & currents.</a></li>
+        <li><a href="https://www.britannica.com/science/astronomy" target="_blank">Astronomy – Celestial bodies.</a></li>
+        <li><a href="https://www.britannica.com/science/environmental-science" target="_blank">Environmental Science – Human impacts.</a></li>
+        <li><a href="https://www.britannica.com/science/natural-resource" target="_blank">Natural Resources – Water, minerals, fuels.</a></li>
       </ul>
     </div>
   </main>
 
-  <footer>© 2026 SciNav | Knowledge Search Page</footer>
+  <!-- Footer -->
+  <footer>
+    © 2026 SciNav | Knowledge Search Page
+  </footer>
 
+  <!-- Search Script -->
   <script>
     const searchBox = document.getElementById("searchBox");
     const sections = document.querySelectorAll(".section");
@@ -176,4 +212,4 @@
     });
   </script>
 </body>
-          </html>
+            </html>
